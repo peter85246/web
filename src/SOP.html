@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AR管理系統</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="navbar">
+        <header>
+          <a href="firstPage.html"><p>AR管理系統</p></a>
+          <hr class="title-line" />
+        </header>
+        <nav class="sidebar">
+          <div class="menu-row">
+            <div class="menu-item">
+              <button class="menu-title">機器管理</button>
+              <!-- 機器管理的下拉內容可以在這裡添加 -->
+            </div>
+            <div class="menu-item">
+              <button class="menu-title">使用者管理</button>
+              <!-- 使用者管理的下拉內容可以在這裡添加 -->
+            </div>
+            <div class="menu-item">
+              <button class="menu-title">知識管理</button>
+              <div class="submenu-content">
+                <a href="firstPage.html" class="submenu-item">知識庫</a>
+                <a href="alarmFirstPage.html" class="submenu-item">故障庫</a>
+              </div>
+            </div>
+            <div class="menu-item">
+              <a href="GPT.html">
+                  <button class="menu-title">GPT系統</button>
+              </a>
+              <!-- 使用者管理的下拉內容可以在這裡添加 -->
+          </div>
+          </div>
+        </nav>
+      </div>
+      <div class="content">
+        <main>
+          <div class="title-area">
+            <span id="menu-icon">☰</span>
+            <div class="header">
+              <div class="admin-text">
+                您好，最高管理員
+                <div class="admin-dropdown">
+                  <a href="#" class="admin-dropdown-item">
+                    <i class="icon-lock"></i> 密碼修改
+                  </a>
+                  <a href="#" class="admin-dropdown-item">
+                    <i class="icon-logout"></i> 登出
+                  </a>
+                </div>
+                <div class="user-icon">
+                  <img src="./icon/user-icon.png" alt="user-icon">
+                </div>
+              </div>
+              <!-- 這裡只是一個簡單的示例，實際的圖標可能會有不同的HTML結構 -->
+            </div>
+          </div>
+          <h2>SOP</h2>
+          <div class="buttons-container">
+            <a class="button btn-save" id="openModalBtn-SOP" type="button">儲存</a>
+            <a href="./addKnowledge.html" class="button btn-cancel">取消</a>
+            <a href="./previewFile.html" class="button btn-preview">預覽</a>
+
+            <!-- 加入的 buttons-alarm 容器 -->
+          <div class="showMachine">
+            <a href="#" class="button btn-showMachine">待新增</a>
+          </div>
+          <!-- buttons-alarm 结束 -->
+          </div>
+          <div class="back-page">
+            <a href="firstPage.html" class="back-text">&#x3C; 知識庫</a>
+            <a href="./addKnowledge.html" class="back-text">&#x3C; 故障說明</a>
+          </div>
+          
+          <!--左側欄位內容-->
+          <div class="content-box">
+            <div class="content-box-left2">
+                <div id="stepContainer"></div>
+              <div class="add-step">+</div>
+            </div>
+            <!--右側欄位內容-->
+            <div class="content-box-right" id="contentContainer">
+              <label class="red-star" for="description">步驟說明：</label>
+                <textarea type="text" class="text-box" id="description"></textarea>
+                <p></p>
+              <label class="red-star" for="invoice-title">備註補充：</label>
+                <textarea type="text" class="text-box" id="remarks"></textarea>
+              <p></p>
+
+              <label class="red-star" for="invoice-title">步驟圖片：</label>
+                <div class="image-box" data-step="stepImage">
+                  <img src="" class="uploaded-image" alt="Uploaded Image" style="display: none;" id="stepImage">
+                </div>
+                <div class="image-actions">
+                  <input type="file" name="SOP2ImageObj" id="stepImage-image-input" class="image-input" hidden>
+                  <button  class="upload-btn-step" id="upload-btn-step">上傳圖片</button>
+                  <button  class="delete-btn-step" id="delete-btn">刪除圖片</button>
+                </div>
+              <p></p>
+
+              <label class="red-star" for="invoice-title">備註圖片：</label>
+                <div class="image-box" data-step="remarksImage">
+                  <img src="" class="uploaded-image" alt="Uploaded Image" style="display: none;" id="remarksImage">
+                </div>
+                <div class="image-actions">
+                  <input type="file" name="SOP2RemarkImageObj" id="remarksImage-image-input" class="image-input" hidden>
+                  <button class="upload-btn-remarks" id="upload-btn-remarks">上傳圖片</button>
+                  <button class="delete-btn-remarks" id="delete-btn-remarks">刪除圖片</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+          </div>
+        </main>
+      </div>
+    </div>
+      <!-- 新增知識的模态框 -->
+      <!-- Modal with overlay -->
+      <div class="modal-overlay" id="modalOverlay">
+        <div class="modal" id="myModal">
+            <div class="modal-title-SOP">新增知識</div>
+            <span id="closeModalBtn" class="close-modal-btn">&times;</span>
+            <hr class="title-line2" />
+            <div class="input-field">
+                <label for="account">帳號</label>
+                <input placeholder="#" type="text" class="input-account" value="XXXXX" readonly>
+            </div>
+            <div class="input-field">
+                <label id="sopNumberLabel">編號：</label>
+            </div>
+            <div class="input-field">
+                <label class="red-star">SOP名稱</label>
+                <input type="text" id="sopNameInput" placeholder="請輸入名稱資訊" class="input-SOPName" required autocomplete="off">
+            </div>
+            <div class="buttons">
+                <button id="cancelBtn">取消</button>
+                <button id="saveBtn">儲存</button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        restoreStepsFromLocalStorage();
+
+        // 检查当前是否存在任何步骤，如果不存在，则自动添加第一个步骤
+      if (document.querySelectorAll('.step').length === 0) {
+        addStep(); // 添加第一个步骤
+        setActiveStep(1, document.querySelector('.step[data-step="1"]')); // 设置第一个步骤为活动步骤
+      }
+      });
+      
+      // 恢复步骤
+      function restoreStepsFromLocalStorage() {
+      const stepsData = JSON.parse(localStorage.getItem("stepsData"));
+      if (stepsData && stepsData.length > 0) {
+        stepsData.forEach(stepNumber => {
+          if (stepHasContent(stepNumber)) {
+            recreateStep(stepNumber); // 重建每个有内容的步骤
+          }
+        });
+      }
+    }
+
+      function stepHasContent(stepNumber) {
+      const description = localStorage.getItem(`descriptionStep${stepNumber}`);
+      const remarks = localStorage.getItem(`remarksStep${stepNumber}`);
+      const stepImage = localStorage.getItem(`stepImageStep${stepNumber}`);
+      const remarksImage = localStorage.getItem(`remarksImageStep${stepNumber}`);
+
+      return description || remarks || stepImage || remarksImage;
+    }
+      
+      function recreateStep(stepNumber) {
+        const stepElem = document.createElement("div");
+        stepElem.className = "step";
+        stepElem.textContent = `步驟 ${stepNumber}`;
+        stepElem.setAttribute("data-step", stepNumber);
+      
+        const trashIcon = document.createElement("img");
+        trashIcon.src = "./icon/垃圾桶.png";
+        trashIcon.className = "trash-icon";
+        trashIcon.alt = "Delete Step";
+      
+        stepElem.appendChild(trashIcon);
+        document.getElementById("stepContainer").appendChild(stepElem);
+      
+        stepElem.addEventListener("click", function () {
+          setActiveStep(stepNumber, stepElem);
+        });
+      
+        // 恢復每個步驟的內容
+        restoreStepContent(stepNumber);
+      }
+
+      // 恢复步骤内容
+      function restoreStepContent(stepNumber) {
+        const description = localStorage.getItem(`descriptionStep${stepNumber}`);
+        const remarks = localStorage.getItem(`remarksStep${stepNumber}`);
+        const stepImage = localStorage.getItem(`stepImageStep${stepNumber}`);
+        const remarksImage = localStorage.getItem(`remarksImageStep${stepNumber}`);
+      
+        stepContent.description[`step${stepNumber}`] = description || "";
+        stepContent.remarks[`step${stepNumber}`] = remarks || "";
+        stepContent.stepImage[`step${stepNumber}`] = stepImage || "";
+        stepContent.remarksImage[`step${stepNumber}`] = remarksImage || "";
+      
+        // 如果是当前活动步骤，更新右侧内容
+        if (stepNumber === activeStepNumber) {
+          syncRightContent(stepNumber);
+        }
+      }
+
+      // 在用户点击添加步骤按钮时调用 addStep
+      document.querySelector(".add-step").addEventListener("click", function() {
+        addStep();
+      })
+      </script>
+
+      <script>
+        // 函數用於處理圖片與文字資料的提交
+        function submitData() {
+
+          // 從LocalStorage獲取MachineAddId
+          // var machineAddId = localStorage.getItem('MachineAddId');
+          var machineAddId = 1;
+          if (!machineAddId) {
+            console.error('No MachineAddId found. Make sure it is set in the MachineAdd page.');
+            return; // 如果找不到MachineAddId，則不進行提交
+          }
+
+          // 創建FormData對象
+          var formData = new FormData();
+          // 獲取SOP名稱
+          var sopName = document.getElementById('sopNameInput').value;
+
+          // totalSteps 為步驟數量
+          var totalSteps = stepCount; // 或者其他方式獲取步驟數量
+
+          // 獲取文字描述和備註
+          var description = document.getElementById('description').value;
+          var remarks = document.getElementById('remarks').value;
+          // 獲取文件輸入元素
+          var stepImageInput  = document.getElementById('stepImage-image-input');
+          var remarksImageInput = document.getElementById('remarksImage-image-input');
+
+          // 獲取圖片文件
+          var stepImage = stepImageInput.files[0];
+          var remarksImage = remarksImageInput.files[0];
+
+          // 在控制台輸出檢查文件信息
+          console.log("Step Image:", stepImage);
+          console.log("Remarks Image:", remarksImage);
+
+          // 檢查是否選中了圖片
+          if (!stepImage || !remarksImage) {
+              alert('請選中所有必要的圖片後再提交。');
+              return;
+          }
+
+          
+          formData.append('MachineAddId', machineAddId);
+          formData.append('SOP2s[0].SOP2Name', sopName);
+          formData.append('SOP2s[0].SOP2Message', description);
+          formData.append('SOP2s[0].SOP2Remark', remarks);
+          formData.append('SOP2s[0].SOP2ImageObj', stepImageInput.files[0]);
+          formData.append('SOP2s[0].SOP2RemarkImageObj', remarksImageInput.files[0]);
+          
+          // 發送數據到後端API
+          fetch('https://localhost:7117/api/AREditior/SaveSOP2', {
+            method: 'PUT', 
+            body: formData
+          })
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Network response was not ok');
+            }
+            return response.json();
+          })
+          .then(data => {
+            console.log('Success:', data);
+            // 處理成功後的回調，例如顯示成功消息或重置表單
+            alert('資料儲存成功'); // 或其他UI提示
+          })
+          .catch((error) => {
+            console.error('Error:', error);
+            // 處理錯誤的回調，例如顯示錯誤消息
+            alert('資料儲存失敗：' + error.message); // 或其他UI提示
+          });
+        }
+        
+        // 綁定模態框的儲存按鈕點擊事件到提交函數
+        document.addEventListener('DOMContentLoaded', function() {
+          var saveButton = document.getElementById('saveBtn'); // 模態框的儲存按鈕
+          if (saveButton) {
+            saveButton.addEventListener('click', function(event) {
+              
+              console.log('Save button clicked.'); // 確認點擊事件是否被觸發
+              event.preventDefault(); // 防止表單的預設提交行為
+              submitData(); // 調用提交數據的函數
+            });
+          }
+
+          // 為步驟圖片輸入添加事件監聽器
+          var stepImageInput = document.getElementById('stepImage-image-input');
+          if (stepImageInput) {
+              stepImageInput.addEventListener('change', function(event) {
+                  if (event.target.files && event.target.files[0]) {
+                      console.log("選擇的步驟圖片文件:", event.target.files[0]);
+                  } else {
+                      console.log("未選擇步驟圖片文件");
+                  }
+              });
+          }
+
+          // 為備註圖片輸入添加事件監聽器
+          var remarksImageInput = document.getElementById('remarksImage-image-input');
+          if (remarksImageInput) {
+              remarksImageInput.addEventListener('change', function(event) {
+                  if (event.target.files && event.target.files[0]) {
+                      console.log("選擇的備註圖片文件:", event.target.files[0]);
+                  } else {
+                      console.log("未選擇備註圖片文件");
+                  }
+              });
+          }
+        });
+      </script>
+      
+    <script src="./style.js"></script>
+    <script src="./SOP.js"></script>
+    <script src="./overlay-modal.js"></script>
+    <script src="./connect.js"></script>
+  </body>
+</html>

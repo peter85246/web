@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AR管理系統</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+
+  <body class="hover-enabled">
+    <div class="container">
+      <div class="navbar">
+        <header>
+          <a href="firstPage.html"><p>AR管理系統</p></a>
+          <hr class="title-line" />
+        </header>
+        <nav class="sidebar">
+          <div class="menu-row">
+            <div class="menu-item">
+              <button class="menu-title">機器管理</button>
+              <!-- 機器管理的下拉內容可以在這裡添加 -->
+            </div>
+            <div class="menu-item">
+              <button class="menu-title">使用者管理</button>
+              <!-- 使用者管理的下拉內容可以在這裡添加 -->
+            </div>
+            <div class="menu-item">
+              <button class="menu-title">知識管理</button>
+              <div class="submenu-content">
+                <a href="firstPage.html" class="submenu-item">知識庫</a>
+                <a href="alarmFirstPage.html" class="submenu-item">故障庫</a>
+              </div>
+            </div>
+            <div class="menu-item">
+              <a href="GPT.html">
+                  <button class="menu-title">GPT系統</button>
+              </a>
+              <!-- 使用者管理的下拉內容可以在這裡添加 -->
+          </div>
+          </div>
+        </nav>
+      </div>
+      <div class="content">
+        <main>
+          <div class="title-area">
+            <span id="menu-icon">☰</span>
+            <div class="header">
+              <div class="admin-text">
+                您好，最高管理員
+                <div class="admin-dropdown">
+                  <a href="#" class="admin-dropdown-item">
+                    <i class="icon-lock"></i> 密碼修改
+                  </a>
+                  <a href="#" class="admin-dropdown-item">
+                    <i class="icon-logout"></i> 登出
+                  </a>
+                </div>
+                <div class="user-icon">
+                  <img src="./icon/user-icon.png" alt="user-icon" />
+                </div>
+              </div>
+              <!-- 這裡只是一個簡單的示例，實際的圖標可能會有不同的HTML結構 -->
+            </div>
+          </div>
+          <h2>資料庫</h2>
+          <div class="back-page">
+            <a href="firstPage.html" class="back-text">&#x3C; 知識庫</a>
+          </div>
+          <div class="buttons-container">
+            <a
+              href="./addKnowledge.html"
+              class="button btn-edit"
+              id="openModalBtn"
+              type="button"
+              >編輯</a
+            >
+            <a href="./firstPage.html" class="button btn-delete">刪除</a>
+            <a href="./repairDocument.html" class="button btn-pdf">PDF</a>
+          </div>
+
+          <!--中間欄位內容-->
+          <div class="content-box">
+            <div class="content-box-middle">
+              <div class="content-wrapper-database">
+                <p class="mark-text">▶ 查詢資訊結果</p>
+                <table>
+                  <thead>
+                    <tr class="row-title-database">
+                      <th>編號</th>
+                      <th>設備種類</th>
+                      <th>設備部件</th>
+                      <th>維修項目</th>
+                      <th>維修類型</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="row-database">
+                      <td>#</td>
+                      <td>#</td>
+                      <td>#</td>
+                      <td>#</td>
+                      <td>#</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <p></p>
+                <div class="mark-note">
+                  <!-- 調整文字位置 -->
+                  <p class="mark-text">▶ 點擊項目說明欄位即可進行編輯</p>
+                  <!-- 新增放大按鈕 -->
+                  <a
+                    href="repairDocument.html"
+                    class="btn-enlarge"
+                    type="button"
+                    >點擊放大預覽</a
+                  >
+                </div>
+                <div class="page-outline">
+                  <div class="file-title" id="file-title">
+                    <div class="page">
+                      <h1>Trouble Shooting</h1>
+                      <div class="preview-content">
+                        <div class="info-box">
+                          <p>File No : TS31510</p>
+                          <p>Error Code : 0000</p>
+                        </div>
+                        <img
+                          class="logo-img"
+                          src="./圖片TS31103/LOGO.jpg"
+                          alt="LOGO"
+                        />
+                      </div>
+                    </div>
+                    <label class="sop-section"
+                      >SOP名稱 : Adjustment of IFM Pressure Switch
+                      IFM宜福門壓力開關調整SOP
+                    </label>
+                  </div>
+  
+                  <div class="model" id="model">
+                    <div>
+                      <label
+                        >For Model 機型 : For all detron GXA‐H series</label
+                      >
+                      <div class="image-container-page">
+                        <img src="./圖片TS31103/For Model.jpg" alt="Machine Image" />
+                      </div>
+                    </div>
+                  </div>
+  
+                  <div class="tools" id="tools">
+                    <div>
+                      <label>Use Tools(使用工具圖片) :</label>
+                      <div class="image-container-page">
+                        <img src="./圖片TS31103/Tool.jpg" alt="Tool 1" />
+                      </div>
+                    </div>
+                    <div class="list-container">
+                      <ul class="tools-list">
+                        <li>A. Flat Screwdriver (平口螺絲起子)</li>
+                        <li>B. T-Wrench (T型板手)</li>
+                        <li>C. Dial indicator (千分錶)</li>
+                        <li>D. Jig-T-slot wrench (T溝板手-治具)</li>
+                        <li>E. Tensiometer (推拉力計)</li>
+                      </ul>
+                    </div>
+                  </div>
+  
+                  <div class="illustration" id="illustration">
+                    <div>
+                      <label>Illustration(維修部位說明) :</label>
+                      <div class="image-container-page">
+                        <img
+                          src="./圖片TS31510/Illustration.jpg"
+                          alt="illustration-photo 1"
+                        />
+                      </div>
+                    </div>
+                    <div class="list-container">
+                      <ul class="illustration-list">
+                        <li>Parts (零件)：</li>
+                        <li>1. 壓力開關檢知線 Signal cable</li>
+                        <li>2. 壓力開關 Pressure Switch</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <p></p>
+                <br />
+                <!-- Page 2 -->
+                <div class="page-outline">
+                  <div class="file-title" id="file-title2">
+                    <div class="page2">
+                      <h1>Trouble Shooting</h1>
+                      <div class="preview-content">
+                        <div class="info-box2">
+                          <p>File No : TS31103</p>
+                          <p>Error Code : 0000</p>
+                        </div>
+                        <img
+                          class="logo-img"
+                          src="./圖片TS31103/LOGO.jpg"
+                          alt="LOGO"
+                        />
+                      </div>
+                      <label class="sop-section2"
+                        >SOP名稱 : Adjustment of IFM Pressure Switch
+                        IFM宜福門壓力開關調整SOP
+                      </label>
+                    </div>
+                  </div>
+  
+                  <div class="step1" id="step1">
+                    <div class="step-title1">
+                      <span>Step 1</span>
+                    </div>
+                    <div class="step-content">
+                      <div class="content-section image-container">
+                        <img
+                          src="./圖片TS31510/Step1-photo.jpg"
+                          alt="Your Image Description"
+                        />
+                      </div>
+                      <div class="content-section">
+                        <p>Illustration(步驟說明)：</p>
+                        <div class="step-content-box">
+                            <p>壓力開關上方黑色旋鈕順時針旋轉至<br/>
+                                <img src="./圖片TS31510/Step1-illustration-2.jpg" alt="#" class="icon-open">
+                                即可解鎖調整環</p>
+                            
+                            <img src="./圖片TS31510/Step1-illustration.jpg" alt="#">
+                        </div>
+                      </div>
+                      <div class="content-section">
+                        <p>Remark(備註補充)：</p>
+                        <div class="step-content-box">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+  
+                  <div class="step2" id="step2">
+                    <div class="step-title2">
+                      <span>Step 2</span>
+                    </div>
+                    <div class="step-content">
+                      <div class="content-section image-container">
+                        <img
+                          src="./圖片TS31510/Step2-photo.jpg"
+                          alt="Your Image Description"
+                        />
+                      </div>
+                      <div class="content-section">
+                        <p>Illustration(步驟說明)：</p>
+                        <div class="step-content-box">
+                            1.將低壓檢知壓力調整至5bar，防止分度盤在鬆開狀態
+                            時，機構內殘留壓力過高產生損害<br/>
+                            <p>2.調整完成後再將上方旋鈕轉至<br/>
+                                <img src="./圖片TS31510/Step1-illustration-2.jpg" alt="#" style="margin-left: 215px; margin-top: -22px;;" class="icon-open">
+                            </p>
+                          1. Adjust the low pressure detection indicator to
+                            5bar, and be careful if the pressure value too high
+                            will casue damage when the rotary table under unclamped condition.
+                            2.After adjustment, rotate the upper botton to<br/>
+                        </div>
+                      </div>
+                      <div class="content-section">
+                        <p>Remark(備註補充)：</p>
+                        <div class="step-content-box">
+                          <img
+                            src="./圖片TS31510/Step2-remark.jpg"
+                            alt="Your Image Description"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+  
+                  <div class="step3" id="step3">
+                    <div class="step-title3">
+                      <span>Step 3</span>
+                    </div>
+                    <div class="step-content">
+                      <div class="content-section image-container">
+                        <img
+                          src="./圖片TS31510/Step3-photo.jpg"
+                          alt="Your Image Description"
+                        />
+                      </div>
+                      <div class="content-section">
+                        <p>Illustration(步驟說明)：</p>
+                        <div class="step-content-box">
+                            1.將高壓檢知壓力調整至35bar，確保分度盤在夾緊狀
+                            態時,達到有效煞車力<br/>
+                            <p>2.調整完成後再將上方旋鈕轉至<br/>
+                                <img src="./圖片TS31510/Step1-illustration-2.jpg" alt="#" style="margin-left: 215px; margin-top: -22px;;" class="icon-open">
+                            </p>
+                          1. Adjust the high pressure detection indicator to
+                          35bar, and make sure the rotary table can reach
+                          effective clamping torque under clamped
+                          condition.
+                          <p>2.After adjustment, rotate the upper botton to<br/>
+                            <img src="./圖片TS31510/Step1-illustration-2.jpg" alt="#" style="margin-left: 305px; margin-top: -22px;;" class="icon-open2">
+                        </p>
+                        </div>
+                      </div>
+                      <div class="content-section">
+                        <p>Remark(備註補充)：</p>
+                        <div class="step-content-box">
+                          (Tool B)<br />
+                          <img
+                            src="./圖片TS31510/Step3-remark.jpg"
+                            alt="Your Image Description"
+                          />
+                        </div>
+                    </div>
+                  </div>
+                </div>
+  
+                <div class="step4" id="step4">
+                  <div class="step-title4">
+                    <span>Step 4</span>
+                  </div>
+                  <div class="step-content">
+                    <div class="content-section image-container">
+                      <img src="./圖片TS31510/Step4-photo.jpg" alt="Your Image Description" />
+                    </div>
+                    <div class="content-section" id="illustrationContent">
+                      <p>Illustration(步驟說明)：</p>
+                      <div class="step-content-box">
+                        <img src="./圖片TS31510/Step4-illustration.jpg" alt="Your Image Description" />
+                      </div>
+                    </div>
+                    <div class="content-section" id="remarksContent">
+                      <p>Remark(備註補充)：</p>
+                      <div class="step-content-box">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- <div class="step3" id="step3">
+                <div class="step-title3">
+                  <span>Step 3</span>
+                </div>
+                <div class="step-content">
+                  <div class="content-section image-container">
+                    <img
+                      src="./圖片TS31510/Step3-photo.jpg"
+                      alt="Your Image Description"
+                    />
+                  </div>
+                  <div class="content-section">
+                    <p>Illustration(步驟說明)：</p>
+                    <div class="step-content-box">
+                        1.將高壓檢知壓力調整至35bar，確保分度盤在夾緊狀
+                        態時,達到有效煞車力<br/>
+                        <p>2.調整完成後再將上方旋鈕轉至<br/>
+                            <img src="./圖片TS31510/Step1-illustration-2.jpg" alt="#" style="margin-left: 215px; margin-top: -22px;;" class="icon-open">
+                        </p>
+                      1. Adjust the high pressure detection indicator to
+                      35bar, and make sure the rotary table can reach
+                      effective clamping torque under clamped
+                      condition.
+                      <p>2.After adjustment, rotate the upper botton to<br/>
+                        <img src="./圖片TS31510/Step1-illustration-2.jpg" alt="#" style="margin-left: 305px; margin-top: -22px;;" class="icon-open2">
+                    </p>
+                    </div>
+                  </div>
+                  <div class="content-section">
+                    <p>Remark(備註補充)：</p>
+                    <div class="step-content-box">
+                      (Tool B)<br />
+                      <img
+                        src="./圖片TS31510/Step3-remark.jpg"
+                        alt="Your Image Description"
+                      />
+                    </div>
+                </div>
+              </div>
+            </div> -->
+
+
+            </div>
+          </div>
+        </main>
+      </div>
+
+      <!-- 新增知識的模态框 -->
+      <!-- Modal with overlay -->
+      <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-database" id="fileModal">
+            <span id="closeModalBtn" class="database-close-modal-btn">&times;</span>
+            <div class="database-scrollbar">
+                <div class="modal-title-database" id="modalTitle">#</div>
+                <hr class="title-line2" />
+                <div class="database-step-container">
+                    <div class="section-database image-section" id="modalImageSection">
+                      <div class="image-container-modal" id="imageContainer">
+                        <img src="" alt="" id="modalImage" class="modal-image" />
+                        <span  id="deleteImageBtn" class="delete-image-btn">&minus;</span> <!-- 删除图片的按钮 -->
+                      </div>
+                        <span id="addImageBtn" class="database-add-image">&#43;</span> <!-- 添加圖片的按鈕，使用HTML實體代碼 -->
+                      </div>
+                    <hr class="database-hr"/>
+                    <div class="section-database description-section" id="modalDescriptionSection">
+                        <div class="section-title">步驟說明：</div>
+                        <textarea id="modalDescription" class="modal-textarea" placeholder="#"></textarea>
+                        <!-- 文字輸入框會在這裡 -->
+                    </div>
+                    <hr class="database-hr">
+                    <div class="section-database notes-section" id="modalNotesSection">
+                        <div class="section-title">備註補充：</div> 
+                        <textarea id="modalNotes" class="modal-textarea" placeholder="#"></textarea>
+                        <div class="image-container-modal" id="imageContainer">
+                          <img src="" alt="" id="modalImage-remark" class="modal-image" />
+                          <span  id="deleteImageBtn" class="delete-image-btn">&minus;</span> <!-- 删除图片的按钮 -->
+                        </div>
+                        <span id="addImageBtn-remark" class="database-add-image-remark">&#43;</span> <!-- 添加備註的按鈕，使用HTML實體代碼 -->
+                        
+                    </div>
+                </div>
+                <hr class="title-line-button" />
+                
+                <div class="buttons-database">
+                    <a href="./database.html" class="button btn-cancel">取消</a>
+                    <a href="./database.html" class="button btn-save" type="button">儲存</a>
+                </div> 
+            </div>
+
+    <script>
+      // 點擊儲存按鈕導入"資料庫"網頁
+      document
+        .getElementById("openModalBtn-condition")
+        .addEventListener("click", function (e) {
+          e.preventDefault(); // 阻止默認的頁面跳轉行為
+          window.location.href = "./database2.html";
+        });
+    </script>
+    <script src="./style.js"></script>
+    <script src="./database.js"></script>
+  </body>
+</html>

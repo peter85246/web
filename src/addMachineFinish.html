@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AR管理系統</title>
+    <link rel="stylesheet" href="./style.css" />
+   <!--  <link rel="stylesheet" href="./style-alarm.css" /> -->
+  </head>
+  <body>
+    <div class="container">
+      <div class="navbar">
+        <header>
+          <a href="firstPage.html"><p>AR管理系統</p></a>
+          <hr class="title-line">
+        </header>
+        <nav class="sidebar">
+          <div class="menu-row">
+              <div class="menu-item">
+                  <button class="menu-title">機器管理</button>
+                  <!-- 機器管理的下拉內容可以在這裡添加 -->
+              </div>
+              <div class="menu-item">
+                  <button class="menu-title">使用者管理</button>
+                  <!-- 使用者管理的下拉內容可以在這裡添加 -->
+              </div>
+              <div class="menu-item">
+                  <button class="menu-title">知識管理</button>
+                  <div class="submenu-content">
+                      <a href="firstPage.html" class="submenu-item">知識庫</a>
+                      <a href="alarmFirstPage.html" class="submenu-item">故障庫</a>
+                  </div>
+              </div>
+              <div class="menu-item">
+                <a href="GPT.html">
+                    <button class="menu-title">GPT系統</button>
+                </a>
+                <!-- 使用者管理的下拉內容可以在這裡添加 -->
+            </div>
+          </div>
+      </nav>
+    </div>
+    <div class="content">
+      <main>
+        <div class="title-area">
+          <span id="menu-icon">☰</span>
+          <div class="header">
+            <div class="admin-text">
+              您好，最高管理員
+              <div class="admin-dropdown">
+                <a href="#" class="admin-dropdown-item">
+                  <i class="icon-lock"></i> 密碼修改
+                </a>
+                <a href="#" class="admin-dropdown-item">
+                  <i class="icon-logout"></i> 登出
+                </a>
+              </div>
+              <div class="user-icon">
+                <img src="./icon/user-icon.png" alt="user-icon">
+              </div>
+            </div>
+             <!-- 這裡只是一個簡單的示例，實際的圖標可能會有不同的HTML結構 -->
+          </div>
+        </div>
+        <div>
+          <h2 id="title-alarm">故障庫</h2>
+          <div class="back-page">
+            <a href="./alarmFirstPage.html" class="back-text">&#x3C; 故障庫</a>
+          </div>
+          <div class="buttons-container-item">
+            <div class="buttons-alarm">
+              <div class="newMachineItem">
+                <a href="#" class="button btn-new">待新增</a>
+                <span class="drop-down-arrow-alarm">▼</span>
+                <ul class="custom-datalist-alarm">
+                  <li></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+    <!--左側欄位內容-->
+    <div class="content-box">
+      <!-- 編輯按鈕容器 -->
+      <div class="edit-container">
+        <button id="edit-button">編輯</button>
+      </div>
+      <div class="content-box-left-alarm">
+        <!-- 標題 -->
+      <div class="title-bar">
+        <h2>故障項目</h2>
+    </div>
+
+    <!-- 列表開始 -->
+    <div class="menu2">
+      <!-- 項目 -->
+      <div class="menu-item-alarm">
+        <div class="collapsible" onclick="toggleContent(event, this)">
+          <span class="arrow">></span>
+        </div>
+        <div class="content-alarm">
+          <!-- 子項目 -->
+          <div class="sub-menu-item">
+            <div class="collapsible" onclick="toggleContent(event, this)">
+              <span class="arrow">></span>
+            </div>
+            <div class="content-alarm">
+              <div class="final-item"><span class="dot"></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+      <!-- 列表結束 -->
+      </div>
+      <!--右側欄位內容-->
+      <div class="content-box-right-alarm2">
+        <!-- 內容待添加 -->
+        <div class="mindmap">
+          <div class="node central-node" id="central-node">
+            <div class="add-btn left">+</div>
+            <span>心智圖</span>
+            <div class="add-btn right">+</div>
+          </div>
+        </div>
+        </div>
+      </div>
+      </main>
+
+      </div>
+      <script>
+        /* ------------------- 頁面跳轉文字呈現 ---------------------- */
+        document.addEventListener("DOMContentLoaded", function () {
+        // 从 localStorage 获取保存的文本
+        var savedSpanText = localStorage.getItem("selectedSpanText");
+        var savedCollapsibleText = localStorage.getItem("selectedCollapsibleText");
+        // 从 localStorage 获取保存的 h2 文本
+        var savedH2Text = localStorage.getItem("h2TextForMindMap");
+
+        // 如果有保存的文本，更新 title-alarm-mindMap
+        if (savedH2Text) {
+            var titleElement = document.getElementById("title-alarm-mindMap");
+            if (titleElement) {
+                titleElement.textContent = savedH2Text;
+            }
+        }
+
+        // 更新 central-node 的 span 文本
+        if (savedSpanText) {
+            var centralNodeSpan = document.getElementById("central-node").querySelector("span");
+            if (centralNodeSpan) {
+                centralNodeSpan.textContent = savedSpanText;
+            }
+         }
+        });
+
+      </script>
+
+      <script>
+        /* ------------------- 頁面呈現心智圖樣式 - 之後刪除 ---------------------- */
+        function initializeMindMap() {
+        // 创建左侧的 level-1 节点
+        createBranch(1, centralNode, "left");
+        // 稍微延时以确保节点已创建
+        setTimeout(() => {
+            // 创建左侧的 level-2 节点
+            const leftLevel1Node = document.querySelector(".node.level-1.left");
+            createBranch(2, leftLevel1Node, "left");
+            createBranch(2, leftLevel1Node, "left");
+            // 创建左侧的 level-3 节点
+            const leftLevel2Nodes = document.querySelectorAll(".node.level-2.left");
+            leftLevel2Nodes.forEach(node => {
+            createBranch(3, node, "left");
+            createBranch(3, node, "left");
+            });
+        }, 100);
+
+        // 创建右侧的 level-1 节点
+        createBranch(1, centralNode, "right");
+        // 稍微延时以确保节点已创建
+        setTimeout(() => {
+            // 创建右侧的 level-2 节点
+            const rightLevel1Node = document.querySelector(".node.level-1.right");
+            createBranch(2, rightLevel1Node, "right");
+            createBranch(2, rightLevel1Node, "right");
+            // 创建右侧的 level-3 节点
+            const rightLevel2Nodes = document.querySelectorAll(".node.level-2.right");
+            rightLevel2Nodes.forEach(node => {
+            createBranch(3, node, "right");
+            createBranch(3, node, "right");
+            });
+        }, 100);
+        }
+
+        // 页面加载时初始化心智图
+        window.addEventListener("DOMContentLoaded", initializeMindMap);
+
+      </script>
+      <script src="style.js"></script>
+      <script src="alarm.js"></script>
+      <script src="mindMapShow.js"></script>
+      <script src="addNewMaContent.js"></script>
+  </body>
+</html>

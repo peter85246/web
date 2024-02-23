@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AR管理系統</title>
+    <link rel="stylesheet" href="./style.css" />
+   <!--  <link rel="stylesheet" href="./style-alarm.css" /> -->
+  </head>
+  <body>
+    <div class="container">
+      <div class="navbar">
+        <header>
+          <a href="firstPage.html"><p>AR管理系統</p></a>
+          <hr class="title-line">
+        </header>
+        <nav class="sidebar">
+          <div class="menu-row">
+              <div class="menu-item">
+                  <button class="menu-title">機器管理</button>
+                  <!-- 機器管理的下拉內容可以在這裡添加 -->
+              </div>
+              <div class="menu-item">
+                  <button class="menu-title">使用者管理</button>
+                  <!-- 使用者管理的下拉內容可以在這裡添加 -->
+              </div>
+              <div class="menu-item">
+                  <button class="menu-title">知識管理</button>
+                  <div class="submenu-content">
+                      <a href="firstPage.html" class="submenu-item">知識庫</a>
+                      <a href="alarmFirstPage.html" class="submenu-item">故障庫</a>
+                  </div>
+              </div>
+          </div>
+      </nav>
+    </div>
+    <div class="content">
+      <main>
+        <div class="title-area">
+          <span id="menu-icon">☰</span>
+          <div class="header">
+            <div class="admin-text">
+              您好，最高管理員
+              <div class="admin-dropdown">
+                <a href="#" class="admin-dropdown-item">
+                  <i class="icon-lock"></i> 密碼修改
+                </a>
+                <a href="#" class="admin-dropdown-item">
+                  <i class="icon-logout"></i> 登出
+                </a>
+              </div>
+              <div class="user-icon">
+                <img src="./icon/user-icon.png" alt="user-icon">
+              </div>
+            </div>
+             <!-- 這裡只是一個簡單的示例，實際的圖標可能會有不同的HTML結構 -->
+          </div>
+        </div>
+        <div>
+          <h2 id="title-alarm">故障庫</h2>
+          <div class="back-page">
+            <a href="./alarmFirstPage.html" class="back-text">&#x3C; 故障庫</a>
+          </div>
+          <div class="buttons-container-item">
+            <div class="buttons-alarm">
+              <div class="newMachineItem">
+                <a href="#" class="button btn-new">待新增</a>
+                <span class="drop-down-arrow-alarm">▼</span>
+                <ul class="custom-datalist-alarm">
+                  <li></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+    <!--左側欄位內容-->
+    <div class="content-box">
+      <!-- 編輯按鈕容器 -->
+      <div class="edit-container">
+        <button id="edit-button">編輯</button>
+      </div>
+      <div class="content-box-left-alarm">
+        <!-- 標題 -->
+      <div class="title-bar">
+        <h2>故障項目</h2>
+    </div>
+
+    <!-- 列表開始 -->
+    <div class="menu2">
+      <!-- 項目 -->
+      <div class="menu-item-alarm">
+        <div class="collapsible" onclick="toggleContent(event, this)">
+          <span class="arrow">></span>
+        </div>
+        <div class="content-alarm">
+          <!-- 子項目 -->
+          <div class="sub-menu-item">
+            <div class="collapsible" onclick="toggleContent(event, this)">
+              <span class="arrow">></span>
+            </div>
+            <div class="content-alarm">
+              <div class="final-item"><span class="dot"></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+      <!-- 列表結束 -->
+      </div>
+      <!--右側欄位內容-->
+      <div class="content-box-right-alarm2">
+        <div class="mindmap">
+          <div class="node central-node" id="central-node">
+            <span>心智图</span>
+            <div class="add-btn right" id="add-btn-new-right" onclick="togglePopup()">+</div>
+            <!-- 弹出窗口的HTML结构 -->
+            <div id="number-popup" class="number-popup-style">
+              <button class="arrow-btn" onclick="changeNumber(1)">▲</button>
+              <input placeholder="" type="text" id="number-input" value="1" onblur="checkInputRange(this)">
+              <button class="arrow-btn" onclick="changeNumber(-1)">▼</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      </main>
+      <!-- 新增知識的模态框 -->
+      <!-- Modal with overlay -->
+      <div class="modal-overlay-alarm" id="modalOverlay-newMachine">
+        <div class="modal-condition-alarm" id="myModal">
+          <div class="modal-title-branch">分支創建</div>
+            <span id="closeModalBtn" class="close-modal-btn">&times;</span>
+            <hr class="title-line2" />
+          <div class="left-box-condition-alarm">
+            <p>可拖動選項至目標欄位填入項目</p>
+              <div class="box-condition1">
+                <input type="text" id="search" placeholder="搜尋全部內容項目" autocomplete="off">
+
+                <div class="scroll-box">
+                    <div class="condition-item" draggable="true"><span>項目1</span><div class="icon">≡</div></div>
+                    <div class="condition-item" draggable="true"><span>項目2</span><div class="icon">≡</div></div>
+                    <div class="condition-item" draggable="true"><span>項目3</span><div class="icon">≡</div></div>
+                    <div class="condition-item" draggable="true"><span>項目4</span><div class="icon">≡</div></div>
+                    <div class="condition-item" draggable="true"><span>項目5</span><div class="icon">≡</div></div>
+                    <div class="condition-item" draggable="true"><span>項目6</span><div class="icon">≡</div></div>
+                    <div class="condition-item" draggable="true"><span>項目7</span><div class="icon">≡</div></div>
+                    <div class="condition-item" draggable="true"><span>項目8</span><div class="icon">≡</div></div>
+                    <div class="condition-item" draggable="true"><span>項目9</span><div class="icon">≡</div></div>
+                    <div class="condition-item" draggable="true"><span>項目10</span><div class="icon">≡</div></div>
+                    <!-- ... 其他條件項目 ... -->
+                </div>
+              </div>
+          </div>
+              
+          <div class="right-box-condition-alarm">
+            <div class="edit-container-branch">
+              <!-- 新增的用於放置儲存和取消按鈕的容器 -->
+              <div class="button-container" id="editBranchButtons"></div>
+              <!-- 原始的編輯分支按鈕 -->
+              <button class="editBranch-button" id="editBranch-button">編輯分支</button>
+            </div>
+
+            <div class="box-condition-alarm2">
+                <div class="form-group-condition">
+                  <label class="red-star-branch" for="invoice-number">分支一：</label>
+                  <!-- <input class="fault-Info" name="invoice-number" id="invoice-number" placeholder="請輸入資訊">
+                  <span class="drop-down-arrow">▼</span> -->
+                  <div class="custom-select-alarm1">
+                    <input class="fault-Info" name="invoice-number" id="invoice-number" placeholder="請輸入維修類型">
+                    <span class="drop-down-arrow">▼</span>
+                    <ul class="custom-datalist" id="invoice-options">
+                        <li data-value="選項1">選項1</li>
+                        <li data-value="選項2">選項2</li>
+                        <li data-value="選項3">選項3</li>
+                    </ul>
+                  </div>
+                      <div class="custom-select-alarm2">
+                          <input class="fault-Info" name="invoice-number" id="invoice-number" placeholder="請輸入維修項目">
+                          <span class="drop-down-arrow">▼</span>
+                          <ul class="custom-datalist" id="invoice-options">
+                              <li data-value="選項1">選項1</li>
+                              <li data-value="選項2">選項2</li>
+                              <li data-value="選項3">選項3</li>
+                          </ul>
+                      </div>
+                  </div>
+
+                <div class="form-group-condition">
+                    <label class="red-star-branch" for="invoice-number">分支二：</label>
+                    <div class="custom-select-alarm1">
+                      <input class="fault-Info" name="invoice-number" id="invoice-number" placeholder="請輸入維修類型">
+                      <span class="drop-down-arrow">▼</span>
+                      <ul class="custom-datalist" id="invoice-options">
+                          <li data-value="選項1">選項1</li>
+                          <li data-value="選項2">選項2</li>
+                          <li data-value="選項3">選項3</li>
+                      </ul>
+                    </div>
+                        <div class="custom-select-alarm2">
+                            <input class="fault-Info" name="invoice-number" id="invoice-number" placeholder="請輸入維修項目">
+                            <span class="drop-down-arrow">▼</span>
+                            <ul class="custom-datalist" id="invoice-options">
+                                <li data-value="選項1">選項1</li>
+                                <li data-value="選項2">選項2</li>
+                                <li data-value="選項3">選項3</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                <div class="form-group-condition">
+                    <label class="red-star-branch" for="invoice-number">分支三：</label>
+                    <div class="custom-select-alarm1">
+                      <input class="fault-Info" name="invoice-number" id="invoice-number" placeholder="請輸入維修類型">
+                      <span class="drop-down-arrow">▼</span>
+                      <ul class="custom-datalist" id="invoice-options">
+                          <li data-value="選項1">選項1</li>
+                          <li data-value="選項2">選項2</li>
+                          <li data-value="選項3">選項3</li>
+                      </ul>
+                    </div>
+                        <div class="custom-select-alarm2">
+                            <input class="fault-Info" name="invoice-number" id="invoice-number" placeholder="請輸入維修項目">
+                            <span class="drop-down-arrow">▼</span>
+                            <ul class="custom-datalist" id="invoice-options">
+                                <li data-value="選項1">選項1</li>
+                                <li data-value="選項2">選項2</li>
+                                <li data-value="選項3">選項3</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                <div class="form-group-condition">
+                    <label class="red-star-branch" for="invoice-number">分支四：</label>
+                    <div class="custom-select-alarm1">
+                      <input class="fault-Info" name="invoice-number" id="invoice-number" placeholder="請輸入維修類型">
+                      <span class="drop-down-arrow">▼</span>
+                      <ul class="custom-datalist" id="invoice-options">
+                          <li data-value="選項1">選項1</li>
+                          <li data-value="選項2">選項2</li>
+                          <li data-value="選項3">選項3</li>
+                      </ul>
+                    </div>
+                        <div class="custom-select-alarm2">
+                            <input class="fault-Info" name="invoice-number" id="invoice-number" placeholder="請輸入維修項目">
+                            <span class="drop-down-arrow">▼</span>
+                            <ul class="custom-datalist" id="invoice-options">
+                                <li data-value="選項1">選項1</li>
+                                <li data-value="選項2">選項2</li>
+                                <li data-value="選項3">選項3</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                <div class="form-group-condition">
+                    <label class="red-star-branch" for="invoice-number">分支五：</label>
+                    <div class="custom-select-alarm1">
+                      <input class="fault-Info" name="invoice-number" id="invoice-number" placeholder="請輸入維修類型">
+                      <span class="drop-down-arrow">▼</span>
+                      <ul class="custom-datalist" id="invoice-options">
+                          <li data-value="選項1">選項1</li>
+                          <li data-value="選項2">選項2</li>
+                          <li data-value="選項3">選項3</li>
+                      </ul>
+                    </div>
+                        <div class="custom-select-alarm2">
+                            <input class="fault-Info" name="invoice-number" id="invoice-number" placeholder="請輸入維修項目">
+                            <span class="drop-down-arrow">▼</span>
+                            <ul class="custom-datalist" id="invoice-options">
+                                <li data-value="選項1">選項1</li>
+                                <li data-value="選項2">選項2</li>
+                                <li data-value="選項3">選項3</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                <div class="form-group-condition">
+                    <label class="red-star-branch" for="invoice-number">分支六：</label>
+                    <div class="custom-select-alarm1">
+                      <input class="fault-Info" name="invoice-number" id="invoice-number" placeholder="請輸入維修類型">
+                      <span class="drop-down-arrow">▼</span>
+                      <ul class="custom-datalist" id="invoice-options">
+                          <li data-value="選項1">選項1</li>
+                          <li data-value="選項2">選項2</li>
+                          <li data-value="選項3">選項3</li>
+                      </ul>
+                    </div>
+                        <div class="custom-select-alarm2">
+                            <input class="fault-Info" name="invoice-number" id="invoice-number" placeholder="請輸入維修項目">
+                            <span class="drop-down-arrow">▼</span>
+                            <ul class="custom-datalist" id="invoice-options">
+                                <li data-value="選項1">選項1</li>
+                                <li data-value="選項2">選項2</li>
+                                <li data-value="選項3">選項3</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                <div class="form-group-condition">
+                    <label class="red-star-branch" for="invoice-number">分支七：</label>
+                    <div class="custom-select-alarm1">
+                    <input class="fault-Info" name="invoice-number" id="invoice-number" placeholder="請輸入維修類型">
+                    <span class="drop-down-arrow">▼</span>
+                    <ul class="custom-datalist" id="invoice-options">
+                        <li data-value="選項1">選項1</li>
+                        <li data-value="選項2">選項2</li>
+                        <li data-value="選項3">選項3</li>
+                    </ul>
+                  </div>
+                      <div class="custom-select-alarm2">
+                          <input class="fault-Info" name="invoice-number" id="invoice-number" placeholder="請輸入維修項目">
+                          <span class="drop-down-arrow">▼</span>
+                          <ul class="custom-datalist" id="invoice-options">
+                              <li data-value="選項1">選項1</li>
+                              <li data-value="選項2">選項2</li>
+                              <li data-value="選項3">選項3</li>
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+          
+          <div class="buttons-condition-alarm">
+            <a href="./addNewMachine.html" class="button btn-cancel">取消</a>
+            <a href="./addMachineFinish.html" class="button btn-save" id="openModalBtn-alarmItem" type="button">儲存</a>
+          </div> 
+
+      </div>
+      <script>
+        // 用于初始化心智图的函数，您需要根据实际代码调整它
+        function initializeMindMap() {
+            // ... 创建心智图的代码 ...
+        }
+        
+        // 用于保存心智图状态的函数
+        function saveMindMapState() {
+            // ... 保存心智图状态的代码 ...
+        }
+        
+        // 页面加载时初始化心智图
+        window.addEventListener("DOMContentLoaded", function() {
+            initializeMindMap();
+        });
+        
+        // 给保存按钮添加点击事件监听器
+        document.addEventListener("DOMContentLoaded", function() {
+            var saveButton = document.getElementById("openModalBtn-alarmItem");
+            saveButton.addEventListener("click", function(event) {
+                event.preventDefault(); // 阻止链接的默认行为
+                saveMindMapState(); // 保存心智图状态
+                window.location.href = "./addMachineFinish.html"; // 跳转到新页面
+            });
+        });
+        </script>
+      <script src="style.js"></script>
+      <script src="condition.js"></script>
+      <script src="alarm.js"></script>
+      <script src="mindMap.html"></script>
+      <script src="addNewMaContent.js"></script>
+  </body>
+</html>

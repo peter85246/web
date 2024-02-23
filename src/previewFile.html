@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AR管理系統</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="navbar">
+        <header>
+          <a href="firstPage.html"><p>AR管理系統</p></a>
+          <hr class="title-line" />
+        </header>
+        <nav class="sidebar">
+          <div class="menu-row">
+            <div class="menu-item">
+              <button class="menu-title">機器管理</button>
+              <!-- 機器管理的下拉內容可以在這裡添加 -->
+            </div>
+            <div class="menu-item">
+              <button class="menu-title">使用者管理</button>
+              <!-- 使用者管理的下拉內容可以在這裡添加 -->
+            </div>
+            <div class="menu-item">
+              <button class="menu-title">知識管理</button>
+              <div class="submenu-content">
+                <a href="firstPage.html" class="submenu-item">知識庫</a>
+                <a href="alarmFirstPage.html" class="submenu-item">故障庫</a>
+              </div>
+            </div>
+            <div class="menu-item">
+              <a href="GPT.html">
+                  <button class="menu-title">GPT系統</button>
+              </a>
+              <!-- 使用者管理的下拉內容可以在這裡添加 -->
+          </div>
+          </div>
+        </nav>
+      </div>
+      <div class="content">
+        <main>
+          <div class="title-area">
+            <span id="menu-icon">☰</span>
+            <div class="header">
+              <div class="admin-text">
+                您好，最高管理員
+                <div class="admin-dropdown">
+                  <a href="#" class="admin-dropdown-item">
+                    <i class="icon-lock"></i> 密碼修改
+                  </a>
+                  <a href="#" class="admin-dropdown-item">
+                    <i class="icon-logout"></i> 登出
+                  </a>
+                </div>
+                <div class="user-icon">
+                  <img src="./icon/user-icon.png" alt="user-icon" />
+                </div>
+              </div>
+              <!-- 這裡只是一個簡單的示例，實際的圖標可能會有不同的HTML結構 -->
+            </div>
+          </div>
+          <h2>預覽新增</h2>
+          <div class="buttons-container">
+            <a
+              href="./addKnowledge.html"
+              class="button btn-edit"
+              id="openModalBtn"
+              type="button"
+              >編輯</a
+            >
+            <a href="./firstPage.html" class="button btn-delete">刪除</a>
+            <button onclick="downloadFile()" class="button btn-pdf">印出</button>
+
+              <!-- 加入的 buttons-alarm 容器 -->
+            <div class="showMachine">
+              <a href="#" class="button btn-showMachine">待新增</a>
+            </div>
+            <!-- buttons-alarm 结束 -->
+          </div>
+          <div class="back-page">
+            <a href="firstPage.html" class="back-text">&#x3C; 知識庫</a>
+            <a href="./addKnowledge.html" class="back-text">&#x3C; 故障說明</a>
+            <a href="./SOP.html" class="back-text">&#x3C; SOP</a>
+          </div>
+
+          <!--中間欄位內容-->
+          <div class="content-box">
+            <div class="content-box-middle">
+              <div class="page-outline-bigPreview">
+                <div class="file-title" id="file-title">
+                  <div class="page">
+                    <h1>Trouble Shooting</h1>
+                    <div class="preview-content">
+                      <div class="info-box">
+                        <p>File No : TS31103</p>
+                        <p>Error Code : 0000</p>
+                      </div>
+                      <img
+                        class="logo-img"
+                        src="./圖片TS31103/LOGO.jpg"
+                        alt="LOGO"
+                      />
+                    </div>
+                  </div>
+                  <label class="sop-section" id="sopNameLabel"
+                    >SOP名稱 : Adjustment of Backlash for GXA-S series
+                    GXA-S背隙調整
+                  </label>
+                </div>
+
+                <div class="model" id="model">
+                  <div>
+                    <label
+                      >For Model 機型 : GXA-S GXA-H GVA GFA-S GFA-H GTF GTFAE
+                      Series</label
+                    >
+                    <span id="filenameDisplay"></span> <!-- 新增用于显示文件名的span元素 -->
+                    <div class="image-container-page">
+                      <img id="modelImageId" rc="./圖片TS31103/For Model.jpg" alt="Machine Image" />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="tools" id="tools">
+                  <div>
+                    <label>Use Tools(使用工具圖片) :</label>
+                    <div class="image-container-page">
+                      <img id="toolsImageId" src="./圖片TS31103/Tool.jpg" alt="Tool 1" />
+                    </div>
+                  </div>
+                  <div class="list-container">
+                    <ul class="tools-list">
+                      <li>A. Flat Screwdriver (平口螺絲起子)</li>
+                      <li>B. T-Wrench (T型板手)</li>
+                      <li>C. Dial indicator (千分錶)</li>
+                      <li>D. Jig-T-slot wrench (T溝板手-治具)</li>
+                      <li>E. Tensiometer (推拉力計)</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="illustration" id="illustration">
+                  <div>
+                    <label>Illustration(維修部位說明) :</label>
+                    <div class="image-container-page">
+                      <img
+                        id="positionImageId"
+                        src="./圖片TS31103/illustration.jpg"
+                        alt="illustration-photo 1"
+                      />
+                    </div>
+                  </div>
+                  <div class="list-container">
+                    <ul class="illustration-list">
+                      <li>Parts (零件)：</li>
+                      <li>1. Plug (塞蓋)</li>
+                      <li>2. Coupling (聯軸器)</li>
+                      <li>3. Cover (封軸蓋)</li>
+                      <li>4. Sleeve of Worm Shaft (調整測套管)</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <p></p>
+              <br />
+              <!-- Page 2 -->
+              <div class="page-outline-bigPreview">
+                <div class="file-title" id="file-title">
+                  <div class="page2">
+                    <h1>Trouble Shooting</h1>
+                    <div class="preview-content">
+                      <div class="info-box2">
+                        <p>File No : TS31103</p>
+                        <p>Error Code : 0000</p>
+                      </div>
+                      <img
+                        class="logo-img"
+                        src="./圖片TS31103/LOGO.jpg"
+                        alt="LOGO"
+                      />
+                    </div>
+                    <label class="sop-section2" id="sopNameLabel2"
+                      >SOP名稱 : Adjustment of Backlash for GXA-S series
+                      GXA-S背隙調整
+                    </label>
+                    <span id="filenameDisplay"></span> <!-- 新增用于显示文件名的span元素 -->
+                  </div>
+                </div>
+
+                <div class="step1" id="step1">
+                  <div class="step-title1">
+                    <span>Step 1</span>
+                  </div>
+                  <div class="step-content">
+                    <div class="content-section image-container">
+                      <img
+                        src="./圖片TS31103/Step1-photo.jpg"
+                        alt="Your Image Description"
+                      />
+                    </div>
+                    <div class="content-section">
+                      <p>Illustration(步驟說明)：</p>
+                      <div class="step-content-box">
+                        Remove part 1. by tool A<br />
+                        <p>使用平口螺絲起子移除塞蓋</p>
+                      </div>
+                    </div>
+                    <div class="content-section">
+                      <p>Remark(備註補充)：</p>
+                      <div class="step-content-box">
+                        (Tool A)<br />
+                        <img
+                          src="./圖片TS31103/Tool A.jpg"
+                          alt="Your Image Description"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="step2" id="step2">
+                  <div class="step-title2">
+                    <span>Step 2</span>
+                  </div>
+                  <div class="step-content">
+                    <div class="content-section image-container">
+                      <img
+                        src="./圖片TS31103/Step2-photo.jpg"
+                        alt="Your Image Description"
+                      />
+                    </div>
+                    <div class="content-section">
+                      <p>Illustration(步驟說明)：</p>
+                      <div class="step-content-box">
+                        Rotate motor until tool B(4mm) can reach M5 screws on
+                        part 2. loose the screws. At remark 2. SKT.HD.CAP.SCR.
+                        <br />
+                        <p></p>
+                        轉動馬達至可將T型板手4mm套入聯軸器上的M5螺絲2.後，將螺絲放鬆。
+                      </div>
+                    </div>
+                    <div class="content-section">
+                      <p>Remark(備註補充)：</p>
+                      <div class="step-content-box">
+                        (Tool B)<br />
+                        <img
+                          src="./圖片TS31103/Tool B.jpg"
+                          alt="Your Image Description"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="step3" id="step3">
+                  <div class="step-title3">
+                    <span>Step 3</span>
+                  </div>
+                  <div class="step-content">
+                    <div class="content-section image-container">
+                      <img
+                        src="./圖片TS31103/Step3-photo.jpg"
+                        alt="Your Image Description"
+                      />
+                    </div>
+                    <div class="content-section">
+                      <p>Illustration(步驟說明)：</p>
+                      <div class="step-content-box">
+                        Remove Flat.HD.SKT.SKR *4pcs by tool B(2.5mm). Remove
+                        part 3.
+                        <br />
+                        <p></p>
+                        使用T型板手2.5mm拆開皿型螺絲 4只，將軸封蓋取 下。
+                      </div>
+                    </div>
+                    <div class="content-section">
+                      <p>Remark(備註補充)：</p>
+                      <div class="step-content-box">
+                        (Tool B)<br />
+                        <img
+                          src="./圖片TS31103/Tool B-2.jpg"
+                          alt="Your Image Description"
+                        />
+                      </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="step4" id="step4">
+                <div class="step-title4">
+                  <span>Step 4</span>
+                </div>
+                <div class="step-content">
+                  <div class="content-section image-container">
+                    <img src="./圖片TS31103/Step4-photo.jpg" alt="Your Image Description" />
+                  </div>
+                  <div class="content-section" id="illustrationContent">
+                    <p>Illustration(步驟說明)：</p>
+                    <div class="step-content-box">
+                      Loose SKT.HD.CAP.SCR *2pcs by tool B(3mm).
+                      <br/>
+                      <p></p>
+                      使用T型板手3mm放鬆內六角螺絲M4螺絲 2只。
+                    </div>
+                  </div>
+                  <div class="content-section" id="remarksContent">
+                    <p>Remark(備註補充)：</p>
+                    <div class="step-content-box">
+                      (Tool B)<br />
+                        <img
+                          src="./圖片TS31103/Tool B-2.jpg"
+                          alt="Your Image Description"
+                        />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+    <script>
+      // ------------------------ SOP名稱替換 ------------------------ 
+      document.addEventListener("DOMContentLoaded", function () {
+      // 獲取SOP名稱從localStorage
+      const sopName = localStorage.getItem("sopName");
+      const sopNameLabel = document.getElementById("sopNameLabel");
+      const sopNameLabel2 = document.getElementById("sopNameLabel2"); // 新增的標籤
+
+      // 設置SOP名稱標籤的內容
+      if (sopName) {
+          sopNameLabel.textContent = `SOP名稱 : ${sopName}`;
+          sopNameLabel2.textContent = `SOP名稱 : ${sopName}`; // 為sopNameLabel2設置內容
+      } else {
+          // 如果沒有SOP名稱，設置一個默認值或顯示提示
+          sopNameLabel.textContent = "SOP名稱 : ";
+          sopNameLabel2.textContent = "SOP名稱 : "; // 為sopNameLabel2設置默認值或提示
+      }
+
+      // 加載並顯示圖片
+      function loadImage(localStorageKey, elementId) {
+      const imgSrc = localStorage.getItem(localStorageKey);
+      if (imgSrc && imgSrc !== "undefined") {
+        const imgElement = document.getElementById(elementId);
+        if (imgElement) {
+          imgElement.src = imgSrc;
+        }
+      }
+    }
+
+    // 使用保存在 localStorage 的键和对应的 img 元素的 ID
+    loadImage('modelImage', 'modelImageId');
+    loadImage('toolsImage', 'toolsImageId');
+    loadImage('positionImage', 'positionImageId');
+
+    // ------- AJAX發送請求到後端的API更換Model圖片文字、tools & illustration對應<li>顯示 --------
+    // 需求配合對應後端C#的代碼public方法 - 串聯後端的前端JS部分
+    window.onload = function() {
+    // 通用函數來獲取並顯示圖片檔名
+    function fetchAndDisplayFilename(apiUrl, displayElementId) {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', apiUrl, true);
+
+        xhr.onload = function() {
+            if (xhr.status >= 200 && xhr.status < 300) {
+                var response = JSON.parse(xhr.responseText);
+                var filename = response.filename;
+
+                var displayElement = document.getElementById(displayElementId);
+                if (displayElement) {
+                    var filenameWithoutExtension = filename.split('.').slice(0, -1).join('.');
+                    displayElement.textContent = filenameWithoutExtension;
+                }
+            } else {
+                console.error('請求失敗：', xhr.statusText);
+            }
+        };
+
+        xhr.onerror = function() {
+            console.error('網路請求出錯');
+        };
+
+        xhr.send();
+    }
+
+    // 獲取並顯示“For Model機型”的檔名
+    fetchAndDisplayFilename('/api/images/filename', 'filenameDisplay');
+
+    // 獲取並顯示“工具圖片”的檔名
+    fetchAndDisplayFilename('/api/tools-image-filename', 'toolsImageId'); // 假設這是顯示工具圖片檔名的元素ID
+
+    // 獲取並顯示“部位位置圖片”的檔名
+    fetchAndDisplayFilename('/api/position-image-filename', 'positionImageId'); // 假設這是顯示部位位置圖片檔名的元素ID
+    };
+
+
+
+    });
+    </script>
+    <script src="./style.js"></script>
+    <script src="./SOP.js"></script>
+    <script src="./addKnowledge.js"></script>
+    <script src="./overlay-modal.js"></script>
+    <script src="./connect.js"></script>
+  </body>
+</html>

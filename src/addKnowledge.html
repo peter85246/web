@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AR管理系統</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="navbar">
+        <header>
+          <a href="firstPage.html"><p>AR管理系統</p></a>
+          <hr class="title-line">
+        </header>
+        <nav class="sidebar">
+          <div class="menu-row">
+              <div class="menu-item">
+                  <button class="menu-title">機器管理</button>
+                  <!-- 機器管理的下拉內容可以在這裡添加 -->
+              </div>
+              <div class="menu-item">
+                  <button class="menu-title">使用者管理</button>
+                  <!-- 使用者管理的下拉內容可以在這裡添加 -->
+              </div>
+              <div class="menu-item">
+                  <button class="menu-title">知識管理</button>
+                  <div class="submenu-content">
+                      <a href="firstPage.html" class="submenu-item">知識庫</a>
+                      <a href="alarmFirstPage.html" class="submenu-item">故障庫</a>
+                  </div>
+              </div>
+              <div class="menu-item">
+                <a href="GPT.html">
+                    <button class="menu-title">GPT系統</button>
+                </a>
+                <!-- 使用者管理的下拉內容可以在這裡添加 -->
+            </div>
+          </div>
+      </nav>
+    </div>
+    <div class="content">
+        <main>
+          <div class="title-area">
+            <span id="menu-icon">☰</span>
+            <div class="header">
+              <div class="admin-text">
+                您好，最高管理員
+                <div class="admin-dropdown">
+                  <a href="#" class="admin-dropdown-item">
+                    <i class="icon-lock"></i> 密碼修改
+                  </a>
+                  <a href="#" class="admin-dropdown-item">
+                    <i class="icon-logout"></i> 登出
+                  </a>
+                </div>
+                <div class="user-icon">
+                  <img src="./icon/user-icon.png" alt="user-icon">
+                </div>
+              </div>
+               <!-- 這裡只是一個簡單的示例，實際的圖標可能會有不同的HTML結構 -->
+            </div>
+          </div>
+          <div>
+            <!-- 表單開始 -->
+            <!-- <form id="knowledgeBaseForm" enctype="multipart/form-data"> -->
+            <h2>故障說明</h2>
+            <div class="buttons-container">
+              <!-- <a href="#" id="btn-save-js" class="button btn-save">儲存</a> -->
+              <button type="button" id="btn-save-js" class="button btn-save">儲存</button>
+              <a href="./firstPage.html" class="button btn-cancel">取消</a>
+              <a href="./previewFile.html" class="button btn-preview">預覽</a>
+
+              <!-- 加入的 buttons-alarm 容器 -->
+            <div class="showMachine">
+              <a href="#" class="button btn-showMachine">待新增</a>
+            </div>
+            <!-- buttons-alarm 结束 -->
+            </div>
+          </div>
+            <div class="back-page">
+              <a href="firstPage.html" class="back-text">&#x3C; 知識庫</a>
+          </div>
+          
+          <!--左側欄位內容-->
+          <div class="content-box">
+            <div class="content-box-left">
+                <div class="dropdown">
+                  <div class="form-group">
+                    <label class="red-star" for="invoice-number1">設備種類：</label>
+                    <div class="custom-select equipment-field">
+                      <input class="fault-Info knowledge-input" type="text" name="KnowledgeBaseDeviceType" id="invoice-number1" autocomplete="off">
+                      <span class="drop-down-arrow">▼</span>
+                      <ul class="custom-datalist" id="invoice-options1">
+                        <li data-value="選項1">選項1</li>
+                        <li data-value="選項2">選項2</li>
+                        <li data-value="選項3">選項3</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="red-star" for="invoice-number2">設備部件：</label>
+                    <div class="custom-select equipment-field">
+                      <input class="fault-Info knowledge-input" name="KnowledgeBaseDeviceParts" id="invoice-number2" autocomplete="off">
+                      <span class="drop-down-arrow">▼</span>
+                      <ul class="custom-datalist" id="invoice-options2">
+                        <li data-value="選項1">選項1</li>
+                        <li data-value="選項2">選項2</li>
+                        <li data-value="選項3">選項3</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="red-star" for="invoice-number3">維修項目：</label>
+                    <div class="custom-select equipment-field">
+                    <input class="fault-Info knowledge-input" name="KnowledgeBaseRepairItems" id="invoice-number3" autocomplete="off">
+                      <span class="drop-down-arrow">▼</span>
+                      <ul class="custom-datalist" id="invoice-options3">
+                        <li data-value="選項1">選項1</li>
+                        <li data-value="選項2">選項2</li>
+                        <li data-value="選項3">選項3</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="red-star" for="invoice-number4">維修類型：</label>
+                    <div class="custom-select">
+                      <div class="custom-select equipment-field">
+                        <input class="fault-Info knowledge-input" name="KnowledgeBaseRepairType" id="invoice-number4" autocomplete="off">
+                        <span class="drop-down-arrow">▼</span>
+                        <ul class="custom-datalist" id="invoice-options4">
+                          <li data-value="選項1">選項1</li>
+                          <li data-value="選項2">選項2</li>
+                          <li data-value="選項3">選項3</li>
+                        </ul>
+                      </div>
+                    </div>
+                </div>
+                <!--分隔-->
+                <div class="form-group">
+                <label for="invoice-title">檔案編號：</label>
+                <input type="text" class="fault-Info knowledge-input" data-key="invoice-number5"  name="KnowledgeBaseFileNo" id="invoice-number5" autocomplete="off">
+                </div>
+                <div class="form-group">
+                <label for="invoice-title">故障代碼：</label>
+                <input type="text" class="fault-Info knowledge-input" data-key="invoice-number6"  name="KnowledgeBaseAlarmCode" id="invoice-number6" autocomplete="off">
+                </div>
+                <div class="form-group">
+                <label for="invoice-title">規格：</label>
+                <input type="text" class="fault-Info knowledge-input"  name="KnowledgeBaseSpec" id="invoice-number7" autocomplete="off">
+                </div>
+                <div class="form-group">
+                <label for="invoice-title">系統：</label>
+                <input type="text" class="fault-Info knowledge-input"  name="KnowledgeBaseSystem" id="invoice-number8" autocomplete="off">
+                </div>
+                <div class="form-group">
+                <label for="invoice-title">產品名稱：</label>
+                <input type="text" class="fault-Info knowledge-input"  name="KnowledgeBaseProductName" id="invoice-number9" autocomplete="off">
+                </div>
+            </div>
+            </div>
+            <!--右側欄位內容-->
+            <div class="content-box-right">
+              <label class="red-star" for="invoice-title">故障發生原因：</label>
+                <textarea type="text" class="text-box knowledge-input" name="KnowledgeBaseAlarmCause" id="invoice-number10"></textarea>
+              <P></P>
+              <label class="red-star" for="invoice-title">故障描述：</label>
+                <textarea type="text" class="text-box knowledge-input" name="KnowledgeBaseAlarmDesc" id="invoice-number11"></textarea>
+              <p></p>
+              <label class="red-star" for="invoice-title">故障發生時機：</label>
+              <textarea type="text" class="text-box knowledge-input" name="KnowledgeBaseAlarmOccasion" id="invoice-number12"></textarea>
+              <p></p>
+
+              <label class="red-star" for="invoice-title">For Model機型：</label>
+                <div class="image-box" data-step="stepImage" data-id="modelImage">
+                  <img src="" class="uploaded-image" alt="Uploaded Image" style="display: none;" id="modelImage">
+                </div>
+                <div class="image-actions">
+                  <input type="file" name="KnowledgeBaseModelImage" id="modelImage-image-input" class="image-input" hidden data-id="modelImage">
+                  <button class="upload-btn-model" id="upload-btn-model">上傳圖片</button>
+                  <button class="delete-btn-model" id="delete-btn-model">刪除圖片</button>
+                </div>
+                <p></p>
+
+              <label class="red-star" for="invoice-title">所有使用工具：</label>
+              <div class="image-box" data-step="stepImage"  data-id="toolsImage">
+                <img src="" class="uploaded-image" alt="Uploaded Image" style="display: none;" id="toolsImage">
+              </div>
+              <div class="image-actions">
+                <input type="file" name="KnowledgeBaseToolsImage" id="toolsImage-image-input" class="image-input" hidden data-id="toolsImage">
+                <button class="upload-btn-tools" id="upload-btn-tools">上傳圖片</button>
+                <button class="delete-btn-tools" id="delete-btn-tools">刪除圖片</button>
+              </div>
+            <p></p>
+
+            <label class="red-star" for="invoice-title">部位位置：</label>
+                <div class="image-box" data-step="stepImage" data-id="positionImage">
+                  <img src="" class="uploaded-image" alt="Uploaded Image" style="display: none;" id="positionImage">
+                </div>
+                <div class="image-actions">
+                  <input type="file" name="KnowledgeBasePositionImage" id="positionImage-image-input" class="image-input" hidden data-id="positionImage">
+                  <button class="upload-btn-position" id="upload-btn-position">上傳圖片</button>
+                  <button class="delete-btn-position" id="delete-btn-position">刪除圖片</button>
+                </div>
+
+              <!-- </form> -->
+              <!-- 表單結束 -->
+              </div>
+            </div>
+          </div>
+        </div>
+      
+      </main>
+
+      <script>
+        // GET 獲取最新的 MachineAddId
+              // function fetchLatestMachineAddId() {
+              //     return fetch('https://localhost:7117/api/AREditior/GetLatestMachineAddId', {
+              //           method: 'GET', 
+              //         })
+              //         .then(response => {
+              //             if (!response.ok) {
+              //                 throw new Error('Network response was not ok');
+              //             }
+              //             return response.json();
+              //         })
+              //         .then(data => {
+              //             if (data.Code === "0000") {
+              //                 return data.Data; // 返回 MachineAddId
+              //             } else {
+              //                 throw new Error('Failed to fetch MachineAddId');
+              //             }
+              //         });
+              // }
+
+              // POST 請求來提交表單數據
+              // function submitFormData(formData) {
+              //     return fetch('https://localhost:7117/api/AREditior/GetAllKnowledgeBaseByMachineAddId', {
+              //         method: 'POST',
+              //         body: formData
+              //     })
+              //     .then(response => {
+              //         if (!response.ok) {
+              //             throw new Error('Network response was not ok');
+              //         }
+              //         return response.json();
+              //     })
+              //     .then(data => {
+              //         if (data.Code === "0000") {
+              //             console.log("表單數據提交成功");
+              //             // 可以在這裡進行後續處理，例如使用返回的數據進行PUT請求
+              //         } else {
+              //             throw new Error('Failed to submit form data: ' + data.Message);
+              //         }
+              //     });
+              // }
+      </script>
+          <script>
+              // 函數用於處理表單數據的提交
+              function submitFormData() {
+                  event.preventDefault();
+
+                  // 原有的保存邏輯
+                  try {
+                      saveLeftSideContent(); // 保存左側內容
+                      saveRightSideContent(); // 保存右側內容（文本和圖片）
+                  } catch (error) {
+                      console.error("保存數據時出錯: ", error);
+                      return; // 如果出错，中断执行
+                  }
+
+                  var machineAddId = 1;
+
+                  // 檢查 machineAddId 是否存在
+                  if (!machineAddId) {
+                      console.error("MachineAddId is missing in the URL");
+                      return;
+                  }
+
+                  // 創建FormData對象
+                  var formData = new FormData();
+
+                  // 獲取文件輸入元素
+                  var modelImageInput  = document.getElementById('modelImage-image-input');
+                  var toolsImageInput = document.getElementById('toolsImage-image-input');
+                  var positionImageInput = document.getElementById('positionImage-image-input');
+
+                  // 在控制台输出检查文件列表
+                  console.log("文件列表 - Model Image Files:", modelImageInput.files);
+                  console.log("文件列表 - Tools Image Files:", toolsImageInput.files);
+                  console.log("文件列表 - Position Image Files:", positionImageInput.files);
+                  
+                  // // 獲取圖片文件
+                  var modelImage = modelImageInput.files[0];
+                  var toolsImage = toolsImageInput.files[0];
+                  var positionImage = positionImageInput.files[0];
+
+                  // // 在控制台輸出檢查文件信息
+                  console.log("Model Image:", modelImage);
+                  console.log("Tools Image:", toolsImage);
+                  console.log("Position Image:", positionImage);
+
+                  // 檢查是否選中了圖片
+                  // if (!modelImage || !toolsImage || !positionImage) {
+                  //     alert('請選中所有必要的圖片後再提交。');
+                  //     return;
+                  // }
+
+                  // 獲取表單中的數據並添加到FormData中
+                  formData.append('MachineAddId', machineAddId);
+
+                  formData.append('KnowledgeBases[0].KnowledgeBaseDeviceType', document.getElementById('invoice-number1').value);
+                  formData.append('KnowledgeBases[0].KnowledgeBaseDeviceParts', document.getElementById('invoice-number2').value);
+                  formData.append('KnowledgeBases[0].KnowledgeBaseRepairItems', document.getElementById('invoice-number3').value);
+                  formData.append('KnowledgeBases[0].KnowledgeBaseRepairType', document.getElementById('invoice-number4').value);
+                  formData.append('KnowledgeBases[0].KnowledgeBaseFileNo', document.getElementById('invoice-number5').value);
+                  formData.append('KnowledgeBases[0].KnowledgeBaseAlarmCode', document.getElementById('invoice-number6').value);
+                  formData.append('KnowledgeBases[0].KnowledgeBaseSpec', document.getElementById('invoice-number7').value);
+                  formData.append('KnowledgeBases[0].KnowledgeBaseSystem', document.getElementById('invoice-number8').value);
+                  formData.append('KnowledgeBases[0].KnowledgeBaseProductName', document.getElementById('invoice-number9').value);
+                  formData.append('KnowledgeBases[0].KnowledgeBaseAlarmCause', document.getElementById('invoice-number10').value);
+                  formData.append('KnowledgeBases[0].KnowledgeBaseAlarmDesc', document.getElementById('invoice-number11').value);
+                  formData.append('KnowledgeBases[0].KnowledgeBaseAlarmOccasion', document.getElementById('invoice-number12').value);
+                  formData.append('KnowledgeBases[0].KnowledgeBaseModelImageObj', modelImageInput.files[0]);
+                  formData.append('KnowledgeBases[0].KnowledgeBaseToolsImageObj', toolsImageInput.files[0]);
+                  formData.append('KnowledgeBases[0].KnowledgeBasePositionImageObj', positionImageInput.files[0]);
+
+                  // 輸出FormData內容以供檢查
+                  for (let [key, value] of formData.entries()) {
+                      console.log(`${key}: ${value}`);
+                  }
+
+                  // 發送數據到後端API
+                  fetch('https://localhost:7117/api/AREditior/SaveKnowledgeBase', {
+                      method: 'PUT', 
+                      body: formData
+                  })
+                  .then(response => {
+                    if (!response.ok) {
+                      throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                  })
+                  .then(data => {
+                      console.log("返回的數據：", data);
+                      if (data.Code === "0000") {
+                          console.log("知識庫數據提交成功");
+                          // 数据提交成功后再跳转
+                          window.location.href = saveButton.getAttribute("href");
+                      } else {
+                          console.log("知識庫數據提交失敗：" + data.Message);
+                          // 可以在此处理提交失败的情况，例如显示错误消息
+                      }
+                  })
+                  .catch(error => {
+                      console.error("發生錯誤：", error);
+                  });
+              }
+
+              // function submitPostRequest(formData) {
+              //     // 使用與PUT請求相同的formData進行POST請求
+              //     return fetch('https://localhost:7117/api/AREditior/GetAllKnowledgeBaseByMachineAddId', {
+              //         method: 'POST',
+              //         body: formData
+              //     })
+              //     .then(response => {
+              //         if (!response.ok) {
+              //             throw new Error('Network response was not ok');
+              //         }
+              //         return response.json();
+              //     })
+              //     .then(data => {
+              //         if (data.Code === "0000") {
+              //             console.log("表單數據提交成功");
+              //             // 在這裡可以進行後續處理
+              //         } else {
+              //             throw new Error('Failed to submit form data: ' + data.Message);
+              //         }
+              //     })
+              //     .catch(error => {
+              //         console.error("POST請求錯誤：", error);
+              //     });
+              // }
+
+              // 綁定保存按鈕的點擊事件到提交函數
+              document.addEventListener('DOMContentLoaded', function() {
+                  var saveButton = document.getElementById("btn-save-js");
+                  if (saveButton) {
+                      saveButton.addEventListener("click", function(event) {
+                          event.preventDefault(); // 防止鏈接的默認跳轉行為
+                          console.log('Save button clicked.');
+                          submitFormData(); // 調用提交數據的函數
+                      });
+                  }
+
+                      console.log("Data saved: ", savedOptions);
+                      showOptions(); // 更新顯示的選項
+
+                  // 為Model圖片輸入添加事件監聽器
+                  var modelImageInput  = document.getElementById('modelImage-image-input');
+                  if (modelImageInput) {
+                      modelImageInput.addEventListener('change', function(event) {
+                          if (event.target.files && event.target.files[0]) {
+                              console.log("選擇的Model圖片文件:", event.target.files[0]);
+                          } else {
+                              console.log("未選擇Model圖片文件");
+                          }
+                      });
+                  }
+
+                  // 為Tools圖片輸入添加事件監聽器
+                  var toolsImageInput = document.getElementById('toolsImage-image-input');
+                  if (toolsImageInput) {
+                      toolsImageInput.addEventListener('change', function(event) {
+                          if (event.target.files && event.target.files[0]) {
+                              console.log("選擇的Tools圖片文件:", event.target.files[0]);
+                          } else {
+                              console.log("未選擇Tools圖片文件");
+                          }
+                      });
+                  }
+
+                  // 為Position圖片輸入添加事件監聽器
+                  var positionImageInput = document.getElementById('positionImage-image-input');
+                  if (positionImageInput) {
+                      positionImageInput.addEventListener('change', function(event) {
+                          if (event.target.files && event.target.files[0]) {
+                              console.log("選擇的Position圖片文件:", event.target.files[0]);
+                          } else {
+                              console.log("未選擇Position圖片文件");
+                          }
+                      });
+                  }
+              });
+          </script>
+          
+          <script src="./style.js"></script>
+          <script src="./addKnowledge.js"></script>
+          <script src="./overlay-modal.js"></script>
+          <script src="./connect.js"></script>
+  </body>
+</html>

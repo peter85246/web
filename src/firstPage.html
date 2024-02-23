@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AR管理系統</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="navbar">
+        <header>
+           <p href="firstPage.html">AR管理系統</p>
+          <hr class="title-line">
+        </header>
+        <nav class="sidebar">
+          <div class="menu-row">
+              <div class="menu-item">
+                  <button class="menu-title">機器管理</button>
+                  <!-- 機器管理的下拉內容可以在這裡添加 -->
+              </div>
+              <div class="menu-item">
+                  <button class="menu-title">使用者管理</button>
+                  <!-- 使用者管理的下拉內容可以在這裡添加 -->
+              </div>
+              <div class="menu-item">
+                  <button class="menu-title">知識管理</button>
+                  <div class="submenu-content">
+                      <a href="firstPage.html" class="submenu-item">知識庫</a>
+                      <a href="alarmFirstPage.html" class="submenu-item">故障庫</a>
+                  </div>
+              </div>
+              <div class="menu-item">
+                <a href="GPT.html">
+                    <button class="menu-title">GPT系統</button>
+                </a>
+                <!-- 使用者管理的下拉內容可以在這裡添加 -->
+            </div>
+          </div>
+      </nav>
+    </div>
+    <div class="content">
+        <main>
+          <div class="title-area">
+            <span id="menu-icon">☰</span>
+            <div class="header">
+              <div class="admin-text">
+                您好，最高管理員
+                <div class="admin-dropdown">
+                  <a href="#" class="admin-dropdown-item">
+                    <i class="icon-lock"></i> 密碼修改
+                  </a>
+                  <a href="#" class="admin-dropdown-item">
+                    <i class="icon-logout"></i> 登出
+                  </a>
+                </div>
+                
+                <div class="user-icon">
+                  <img src="./icon/user-icon.png" alt="user-icon">
+                </div>
+              </div>
+              
+               <!-- 這裡只是一個簡單的示例，實際的圖標可能會有不同的HTML結構 -->
+            </div>
+          </div>
+          <h2>知識庫</h2>
+          <div class="content2">
+            <div class="button-function">
+              <a href="#" class="button knowledge-btn">新增知識</a>
+              <a href="./condition.html" class="button condition-btn">條件查詢</a>
+              <!-- ... 其他的按鈕 ... -->
+            </div>
+            <div class="content-wrapper">
+              <div class="list-search">
+              <input type="text" id="searchInput" placeholder="請輸入關鍵字">
+              </div>
+              
+              <table>
+                <thead>
+                  <tr>
+                    <th>編號</th>
+                    <th>設備種類</th>
+                    <th>設備部件</th>
+                    <th>維修項目</th>
+                    <th>維修類型</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="row">
+                    <td>1</td>
+                    <td>銑床</td>
+                    <td>冷卻系統</td>
+                    <td>主軸油冷機故障:1004</td>
+                    <td>機械故障</td>
+                  </tr>
+                  <tr class="row"> 
+                    <td>2</td>
+                    <td>車床</td>
+                    <td>主軸</td>
+                    <td>機械目前處於是車工件的狀態:2014</td>
+                    <td>電控層面</td>
+                  </tr>
+                  <tr class="row"> 
+                    <td>3</td>
+                    <td>(Item3)</td>
+                    <td>(Item3)</td>
+                    <td>(Item3)</td>
+                    <td>(Item3)</td>
+                  </tr>
+                  <tr class="row">
+                    <td>1</td>
+                    <td>銑床</td>
+                    <td>冷卻系統</td>
+                    <td>主軸油冷機故障:1004</td>
+                    <td>機械故障</td>
+                  </tr>
+                  <tr class="row"> 
+                    <td>2</td>
+                    <td>車床</td>
+                    <td>主軸</td>
+                    <td>機械目前處於是車工件的狀態:2014</td>
+                    <td>電控層面</td>
+                  </tr>
+                  <tr class="row"> 
+                    <td>3</td>
+                    <td>(Item3)</td>
+                    <td>(Item3)</td>
+                    <td>(Item3)</td>
+                    <td>(Item3)</td>
+                  </tr>
+                  <tr class="row">
+                    <td>1</td>
+                    <td>銑床</td>
+                    <td>冷卻系統</td>
+                    <td>主軸油冷機故障:1004</td>
+                    <td>機械故障</td>
+                  </tr>
+                  <tr class="row"> 
+                    <td>2</td>
+                    <td>車床</td>
+                    <td>主軸</td>
+                    <td>機械目前處於是車工件的狀態:2014</td>
+                    <td>電控層面</td>
+                  </tr>
+                  <tr class="row"> 
+                    <td>3</td>
+                    <td>(Item3)</td>
+                    <td>(Item3)</td>
+                    <td>(Item3)</td>
+                    <td>(Item3)</td>
+                  </tr>
+                  <tr class="row">
+                    <td>1</td>
+                    <td>銑床</td>
+                    <td>冷卻系統</td>
+                    <td>主軸油冷機故障:1004</td>
+                    <td>機械故障</td>
+                  </tr>
+                  <tr class="row"> 
+                    <td>2</td>
+                    <td>車床</td>
+                    <td>主軸</td>
+                    <td>機械目前處於是車工件的狀態:2014</td>
+                    <td>電控層面</td>
+                  </tr>
+                  <tr class="row"> 
+                    <td>3</td>
+                    <td>(Item3)</td>
+                    <td>(Item3)</td>
+                    <td>(Item3)</td>
+                    <td>(Item3)</td>
+                  </tr>
+                  <tr class="row"> 
+                    <td>2</td>
+                    <td>車床</td>
+                    <td>主軸</td>
+                    <td>機械目前處於是車工件的狀態:2014</td>
+                    <td>電控層面</td>
+                  </tr>
+                  <tr class="row"> 
+                    <td>3</td>
+                    <td>(Item3)</td>
+                    <td>(Item3)</td>
+                    <td>(Item3)</td>
+                    <td>(Item3)</td>
+                  </tr>
+                  <tr class="row">
+                    <td>1</td>
+                    <td>銑床</td>
+                    <td>冷卻系統</td>
+                    <td>主軸油冷機故障:1004</td>
+                    <td>機械故障</td>
+                  </tr>
+                  <tr class="row"> 
+                    <td>2</td>
+                    <td>車床</td>
+                    <td>主軸</td>
+                    <td>機械目前處於是車工件的狀態:2014</td>
+                    <td>電控層面</td>
+                  </tr>
+                  <tr class="row"> 
+                    <td>3</td>
+                    <td>(Item3)</td>
+                    <td>(Item3)</td>
+                    <td>(Item3)</td>
+                    <td>(Item3)</td>
+                  </tr>
+                  <tr class="row">
+                    <td>1</td>
+                    <td>銑床</td>
+                    <td>冷卻系統</td>
+                    <td>主軸油冷機故障:1004</td>
+                    <td>機械故障</td>
+                  </tr>
+                  <tr class="row"> 
+                    <td>2</td>
+                    <td>車床</td>
+                    <td>主軸</td>
+                    <td>機械目前處於是車工件的狀態:2014</td>
+                    <td>電控層面</td>
+                  </tr>
+                  <tr class="row"> 
+                    <td>3</td>
+                    <td>(Item3)</td>
+                    <td>(Item3)</td>
+                    <td>(Item3)</td>
+                    <td>(Item3)</td>
+                  </tr>
+                  <tr class="row">
+                    <td>1</td>
+                    <td>銑床</td>
+                    <td>冷卻系統</td>
+                    <td>主軸油冷機故障:1004</td>
+                    <td>機械故障</td>
+                  </tr>
+                  <tr class="row"> 
+                    <td>2</td>
+                    <td>車床</td>
+                    <td>主軸</td>
+                    <td>機械目前處於是車工件的狀態:2014</td>
+                    <td>電控層面</td>
+                  </tr>
+                  <tr class="row"> 
+                    <td>3</td>
+                    <td>(Item3)</td>
+                    <td>(Item3)</td>
+                    <td>(Item3)</td>
+                    <td>(Item3)</td>
+                  </tr>
+                  <tr class="row"> 
+                    <td>2</td>
+                    <td>車床</td>
+                    <td>主軸</td>
+                    <td>機械目前處於是車工件的狀態:2014</td>
+                    <td>電控層面</td>
+                  </tr>
+                  <tr class="row"> 
+                    <td>3</td>
+                    <td>(Item3)</td>
+                    <td>(Item3)</td>
+                    <td>(Item3)</td>
+                    <td>(Item3)</td>
+                  </tr>
+                  <tr class="row">
+                    <td>1</td>
+                    <td>銑床</td>
+                    <td>冷卻系統</td>
+                    <td>主軸油冷機故障:1004</td>
+                    <td>機械故障</td>
+                  </tr>
+                  <tr class="row"> 
+                    <td>2</td>
+                    <td>車床</td>
+                    <td>主軸</td>
+                    <td>機械目前處於是車工件的狀態:2014</td>
+                    <td>電控層面</td>
+                  </tr>
+                  <tr class="row"> 
+                    <td>3</td>
+                    <td>(Item3)</td>
+                    <td>(Item3)</td>
+                    <td>(Item3)</td>
+                    <td>(Item3)</td>
+                  </tr>
+                  <tr class="row">
+                    <td>1</td>
+                    <td>銑床</td>
+                    <td>冷卻系統</td>
+                    <td>主軸油冷機故障:1004</td>
+                    <td>機械故障</td>
+                  </tr>
+                  <tr class="row"> 
+                    <td>2</td>
+                    <td>車床</td>
+                    <td>主軸</td>
+                    <td>機械目前處於是車工件的狀態:2014</td>
+                    <td>電控層面</td>
+                  </tr>
+                  <tr class="row"> 
+                    <td>3</td>
+                    <td>(Item3)</td>
+                    <td>(Item3)</td>
+                    <td>(Item3)</td>
+                    <td>(Item3)</td>
+                  </tr>
+                  <tr class="row">
+                    <td>1</td>
+                    <td>銑床</td>
+                    <td>冷卻系統</td>
+                    <td>主軸油冷機故障:1004</td>
+                    <td>機械故障</td>
+                  </tr>
+                  <tr class="row"> 
+                    <td>2</td>
+                    <td>車床</td>
+                    <td>主軸</td>
+                    <td>機械目前處於是車工件的狀態:2014</td>
+                    <td>電控層面</td>
+                  </tr>
+                  <tr class="row"> 
+                    <td>3</td>
+                    <td>(Item3)</td>
+                    <td>(Item3)</td>
+                    <td>(Item3)</td>
+                    <td>(Item3)</td>
+                  </tr>
+                  <tr class="row"> 
+                    <td>2</td>
+                    <td>車床</td>
+                    <td>主軸</td>
+                    <td>機械目前處於是車工件的狀態:2014</td>
+                    <td>電控層面</td>
+                  </tr>
+                  <tr class="row"> 
+                    <td>3</td>
+                    <td>(Item3)</td>
+                    <td>(Item3)</td>
+                    <td>(Item3)</td>
+                    <td>(Item3)</td>
+                  </tr>
+                  <tr class="row">
+                    <td>1</td>
+                    <td>銑床</td>
+                    <td>冷卻系統</td>
+                    <td>主軸油冷機故障:1004</td>
+                    <td>機械故障</td>
+                  </tr>
+                  <tr class="row"> 
+                    <td>2</td>
+                    <td>車床</td>
+                    <td>主軸</td>
+                    <td>機械目前處於是車工件的狀態:2014</td>
+                    <td>電控層面</td>
+                  </tr>
+                  <tr class="row"> 
+                    <td>3</td>
+                    <td>(Item3)</td>
+                    <td>(Item3)</td>
+                    <td>(Item3)</td>
+                    <td>(Item3)</td>
+                  </tr>
+                  <tr class="row">
+                    <td>1</td>
+                    <td>銑床</td>
+                    <td>冷卻系統</td>
+                    <td>主軸油冷機故障:1004</td>
+                    <td>機械故障</td>
+                  </tr>
+                  <tr class="row"> 
+                    <td>2</td>
+                    <td>車床</td>
+                    <td>主軸</td>
+                    <td>機械目前處於是車工件的狀態:2014</td>
+                    <td>電控層面</td>
+                  </tr>
+                  <tr class="row"> 
+                    <td>3</td>
+                    <td>(Item3)</td>
+                    <td>(Item3)</td>
+                    <td>(Item3)</td>
+                    <td>(Item3)</td>
+                  </tr>
+                  <tr class="row">
+                    <td>1</td>
+                    <td>銑床</td>
+                    <td>冷卻系統</td>
+                    <td>主軸油冷機故障:1004</td>
+                    <td>機械故障</td>
+                  </tr>
+                  <tr class="row"> 
+                    <td>2</td>
+                    <td>車床</td>
+                    <td>主軸</td>
+                    <td>機械目前處於是車工件的狀態:2014</td>
+                    <td>電控層面</td>
+                  </tr>
+                  <tr class="row"> 
+                    <td>3</td>
+                    <td>(Item3)</td>
+                    <td>(Item3)</td>
+                    <td>(Item3)</td>
+                    <td>(Item3)</td>
+                  </tr>
+                  <tr class="row"> 
+                    <td>2</td>
+                    <td>車床</td>
+                    <td>主軸</td>
+                    <td>機械目前處於是車工件的狀態:2014</td>
+                    <td>電控層面</td>
+                  </tr>
+                  <tr class="row"> 
+                    <td>3</td>
+                    <td>(Item3)</td>
+                    <td>(Item3)</td>
+                    <td>(Item3)</td>
+                    <td>(Item3)</td>
+                  </tr>
+                  <tr class="row">
+                    <td>1</td>
+                    <td>銑床</td>
+                    <td>冷卻系統</td>
+                    <td>主軸油冷機故障:1004</td>
+                    <td>機械故障</td>
+                  </tr>
+                  <tr class="row"> 
+                    <td>2</td>
+                    <td>車床</td>
+                    <td>主軸</td>
+                    <td>機械目前處於是車工件的狀態:2014</td>
+                    <td>電控層面</td>
+                  </tr>
+                  <tr class="row"> 
+                    <td>3</td>
+                    <td>(Item3)</td>
+                    <td>(Item3)</td>
+                    <td>(Item3)</td>
+                    <td>(Item3)</td>
+                  </tr>
+                  <tr class="row">
+                    <td>1</td>
+                    <td>銑床</td>
+                    <td>冷卻系統</td>
+                    <td>主軸油冷機故障:1004</td>
+                    <td>機械故障</td>
+                  </tr>
+                  <tr class="row"> 
+                    <td>2</td>
+                    <td>車床</td>
+                    <td>主軸</td>
+                    <td>機械目前處於是車工件的狀態:2014</td>
+                    <td>電控層面</td>
+                  </tr>
+                  <tr class="row"> 
+                    <td>3</td>
+                    <td>(Item3)</td>
+                    <td>(Item3)</td>
+                    <td>(Item3)</td>
+                    <td>(Item3)</td>
+                  </tr>
+                  <tr class="row">
+                    <td>1</td>
+                    <td>銑床</td>
+                    <td>冷卻系統</td>
+                    <td>主軸油冷機故障:1004</td>
+                    <td>機械故障</td>
+                  </tr>
+                  <tr class="row"> 
+                    <td>2</td>
+                    <td>車床</td>
+                    <td>主軸</td>
+                    <td>機械目前處於是車工件的狀態:2014</td>
+                    <td>電控層面</td>
+                  </tr>
+                  <tr class="row"> 
+                    <td>3</td>
+                    <td>(Item3)</td>
+                    <td>(Item3)</td>
+                    <td>(Item3)</td>
+                    <td>(Item3)</td>
+                  </tr>
+                  <tr class="row"> 
+                    <td>2</td>
+                    <td>車床</td>
+                    <td>主軸</td>
+                    <td>機械目前處於是車工件的狀態:2014</td>
+                    <td>電控層面</td>
+                  </tr>
+                  <tr class="row"> 
+                    <td>3</td>
+                    <td>(Item3)</td>
+                    <td>(Item3)</td>
+                    <td>(Item3)</td>
+                    <td>(Item3)</td>
+                  </tr>
+                  <tr class="row">
+                    <td>1</td>
+                    <td>銑床</td>
+                    <td>冷卻系統</td>
+                    <td>主軸油冷機故障:1004</td>
+                    <td>機械故障</td>
+                  </tr>
+                  <tr class="row"> 
+                    <td>2</td>
+                    <td>車床</td>
+                    <td>主軸</td>
+                    <td>機械目前處於是車工件的狀態:2014</td>
+                    <td>電控層面</td>
+                  </tr>
+                  <tr class="row"> 
+                    <td>3</td>
+                    <td>(Item3)</td>
+                    <td>(Item3)</td>
+                    <td>(Item3)</td>
+                    <td>(Item3)</td>
+                  </tr>
+                  <tr class="row">
+                    <td>1</td>
+                    <td>銑床</td>
+                    <td>冷卻系統</td>
+                    <td>主軸油冷機故障:1004</td>
+                    <td>機械故障</td>
+                  </tr>
+                  <tr class="row"> 
+                    <td>2</td>
+                    <td>車床</td>
+                    <td>主軸</td>
+                    <td>機械目前處於是車工件的狀態:2014</td>
+                    <td>電控層面</td>
+                  </tr>
+                  <tr class="row"> 
+                    <td>3</td>
+                    <td>(Item3)</td>
+                    <td>(Item3)</td>
+                    <td>(Item3)</td>
+                    <td>(Item3)</td>
+                  </tr>
+                  <tr class="row">
+                    <td>1</td>
+                    <td>銑床</td>
+                    <td>冷卻系統</td>
+                    <td>主軸油冷機故障:1004</td>
+                    <td>機械故障</td>
+                  </tr>
+                  <tr class="row"> 
+                    <td>2</td>
+                    <td>車床</td>
+                    <td>主軸</td>
+                    <td>機械目前處於是車工件的狀態:2014</td>
+                    <td>電控層面</td>
+                  </tr>
+                  <tr class="row"> 
+                    <td>3</td>
+                    <td>(Item3)</td>
+                    <td>(Item3)</td>
+                    <td>(Item3)</td>
+                    <td>(Item3)</td>
+                  </tr>
+                  <tr class="row"> 
+                    <td>10</td>
+                    <td>沖床</td>
+                    <td>主軸</td>
+                    <td>機械目前GG:2023</td>
+                    <td>金錢方面</td>
+                  </tr>
+                  
+
+                </tbody>
+              </table>
+
+              <div class="button-page"  id="pagination">
+                <button class="button-page1" ></button>
+                <span class="tab">...</span>
+                <button class="button-page2"></button>
+            </div>
+          </div>
+            </div>
+          </div>
+        </main>
+      </div>
+
+      <!-- 新增知識的模态框 -->
+      <!-- Modal with overlay -->
+      <div class="modal-overlay" id="modalOverlayMachine">
+        <div class="modal" id="myModalMachine">
+            <div class="modal-title-machine">新增機台</div>
+            <span id="closeModalBtnMachine" class="close-modal-btn">&times;</span>
+            <hr class="title-line2" />
+            <div class="input-field">
+                <label for="account">帳號</label>
+                <input placeholder="#" type="text" class="input-account" value="XXXXX" readonly>
+            </div>
+
+            <div class="form-group">
+              <label class="red-star" for="invoice-number">機台種類</label>
+              <div class="custom-select equipment-field">
+                <input class="machine-Info" name="invoice-number" id="machineType" placeholder="請輸入資訊">
+                <span class="drop-down-arrow">▼</span>
+                <ul class="custom-datalist" id="invoice-options">
+                  <li data-value="選項1">選項1</li>
+                  <li data-value="選項2">選項2</li>
+                  <li data-value="選項3">選項3</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="input-field"></div>
+            
+            <div class="form-group">
+              <label class="red-star" for="invoice-number">型號系列</label>
+              <div class="custom-select equipment-field">
+                <input class="machine-Info" name="invoice-number" id="modelSeries" placeholder="請輸入資訊">
+                <span class="drop-down-arrow">▼</span>
+                <ul class="custom-datalist" id="invoice-options">
+                  <li data-value="選項1">選項1</li>
+                  <li data-value="選項2">選項2</li>
+                  <li data-value="選項3">選項3</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="input-field">
+                <label class="red-star">機台型號</label>
+                <input type="text" placeholder="請輸入名稱資訊" class="machine-Info" id="machineModel" required>
+            </div>
+            
+            <div class="buttons-machine">
+              <a href="firstPage.html" class="button btn-cancel">取消</a>
+              <a href="#" class="button btn-save" id="openModalBtn-machine" type="button">儲存</a>
+            </div> 
+        </div>
+      </div>
+
+      <!-- 條件查詢的模态框 -->
+      <!-- Modal with overlay -->
+      <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-condition" id="myModal">
+          <div class="modal-title-condition">條件查詢</div>
+            <span id="closeModalBtn" class="close-modal-btn">&times;</span>
+            <hr class="title-line2" />
+          <div class="left-box-condition">
+            <p>可拖動選項至目標欄位填入項目</p>
+              <div class="box-condition1">
+                <input type="text" id="search" placeholder="搜尋全部內容項目" autocomplete="off">
+
+                <div class="scroll-box">
+                    <div class="condition-item" draggable="true"><span>項目1</span><div class="icon">≡</div></div>
+                    <div class="condition-item" draggable="true"><span>項目2</span><div class="icon">≡</div></div>
+                    <div class="condition-item" draggable="true"><span>項目3</span><div class="icon">≡</div></div>
+                    <div class="condition-item" draggable="true"><span>項目4</span><div class="icon">≡</div></div>
+                    <div class="condition-item" draggable="true"><span>項目5</span><div class="icon">≡</div></div>
+                    <div class="condition-item" draggable="true"><span>項目6</span><div class="icon">≡</div></div>
+                    <div class="condition-item" draggable="true"><span>項目7</span><div class="icon">≡</div></div>
+                    <div class="condition-item" draggable="true"><span>項目8</span><div class="icon">≡</div></div>
+                    <div class="condition-item" draggable="true"><span>項目9</span><div class="icon">≡</div></div>
+                    <div class="condition-item" draggable="true"><span>項目10</span><div class="icon">≡</div></div>
+                    <!-- ... 其他條件項目 ... -->
+                </div>
+              </div>
+          </div>
+              
+          <div class="right-box-condition">
+            <div class="box-condition2">
+                <div class="form-group-condition">
+                    <label for="invoice-number">設備種類：</label>
+                    <div class="custom-select-condition">
+                        <input class="fault-Info" name="invoice-number" id="invoice-number" placeholder="請輸入資訊">
+                        <span class="drop-down-arrow">▼</span>
+                        <ul class="custom-datalist" id="invoice-options">
+                            <li data-value="選項1">選項1</li>
+                            <li data-value="選項2">選項2</li>
+                            <li data-value="選項3">選項3</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="form-group-condition">
+                    <label for="invoice-number">設備部件：</label>
+                    <div class="custom-select-condition">
+                        <input class="fault-Info" name="invoice-number" id="invoice-number" placeholder="請輸入資訊">
+                        <span class="drop-down-arrow">▼</span>
+                        <ul class="custom-datalist" id="invoice-options">
+                            <li data-value="選項1">選項1</li>
+                            <li data-value="選項2">選項2</li>
+                            <li data-value="選項3">選項3</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="form-group-condition">
+                    <label for="invoice-number">維修項目：</label>
+                    <div class="custom-select-condition">
+                        <input class="fault-Info" name="invoice-number" id="invoice-number" placeholder="請輸入資訊">
+                        <span class="drop-down-arrow">▼</span>
+                        <ul class="custom-datalist" id="invoice-options">
+                            <li data-value="選項1">選項1</li>
+                            <li data-value="選項2">選項2</li>
+                            <li data-value="選項3">選項3</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="form-group-condition">
+                    <label for="invoice-number">維修類型：</label>
+                    <div class="custom-select-condition">
+                        <input class="fault-Info" name="invoice-number" id="invoice-number" placeholder="請輸入資訊">
+                        <span class="drop-down-arrow">▼</span>
+                        <ul class="custom-datalist" id="invoice-options">
+                            <li data-value="選項1">選項1</li>
+                            <li data-value="選項2">選項2</li>
+                            <li data-value="選項3">選項3</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="form-group-condition">
+                    <label for="invoice-number">規格：</label>
+                    <div class="custom-select-condition">
+                        <input class="fault-Info" name="invoice-number" id="invoice-number" placeholder="請輸入資訊">
+                        <span class="drop-down-arrow">▼</span>
+                        <ul class="custom-datalist" id="invoice-options">
+                            <li data-value="選項1">選項1</li>
+                            <li data-value="選項2">選項2</li>
+                            <li data-value="選項3">選項3</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="form-group-condition">
+                    <label for="invoice-number">系統：</label>
+                    <div class="custom-select-condition">
+                        <input class="fault-Info" name="invoice-number" id="invoice-number" placeholder="請輸入資訊">
+                        <span class="drop-down-arrow">▼</span>
+                        <ul class="custom-datalist" id="invoice-options">
+                            <li data-value="選項1">選項1</li>
+                            <li data-value="選項2">選項2</li>
+                            <li data-value="選項3">選項3</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="form-group-condition">
+                    <label for="invoice-number">產品名稱：</label>
+                    <div class="custom-select-condition">
+                        <input class="fault-Info" name="invoice-number" id="invoice-number" placeholder="請輸入資訊">
+                        <span class="drop-down-arrow">▼</span>
+                        <ul class="custom-datalist" id="invoice-options">
+                            <li data-value="選項1">選項1</li>
+                            <li data-value="選項2">選項2</li>
+                            <li data-value="選項3">選項3</li>
+                        </ul>
+                    </div>
+                </div>
+              </div>
+          </div>
+          
+          <div class="buttons-condition">
+            <a href="./firstPage.html" class="button btn-cancel">取消</a>
+            <a href="./QueryResult.html" class="button btn-save" id="openModalBtn-condition" type="button">儲存</a>
+          </div> 
+
+      </div>
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+
+        // 點擊儲存按鈕導入"查詢結果"網頁
+        // document
+        //   .getElementById("openModalBtn-condition")
+        //   .addEventListener("click", function (e) {
+        //     e.preventDefault(); // 阻止默認的頁面跳轉行為
+        //     window.location.href = "./QueryResult.html";
+        //   });
+
+        document.querySelector('.btn-save').addEventListener('click', function(event) {
+        event.preventDefault();
+
+        // 創建 FormData 對象
+        var formData = new FormData();
+
+        // 收集輸入欄位的數據
+        formData.append('MachineType', document.getElementById('machineType').value);
+        formData.append('ModelSeries', document.getElementById('modelSeries').value);
+        formData.append('MachineModel', document.getElementById('machineModel').value);
+
+        // 發送 AJAX 請求
+        var xhr = new XMLHttpRequest();
+        xhr.open('PUT', 'https://localhost:7117/api/AREditior/MachineAddInfo', true);
+        xhr.setRequestHeader('Accept', 'application/json');
+
+        xhr.onload = function () {
+            if (this.status >= 200 && this.status < 300) {
+                console.log('Response:', this.responseText);
+
+                // 後端回應包含了MachineAddId，並且它的屬性名稱就是'MachineAddId'
+                //，保存此ID給SOP根據MachineAdd機台存取相對應資料
+                var response = JSON.parse(this.responseText);
+                var machineAddId = response.Data;
+                console.log('machineAddId:', machineAddId);
+
+                // 跳轉到 addKnowledge.html
+                // window.location.href = 'addKnowledge.html?machineAddId=' + machineAddId;;
+                window.location.href = 'addKnowledge.html?machineAddId=1';
+
+            } else {
+                console.error('Something went wrong!');
+            }
+        };
+
+        xhr.onerror = function () {
+            console.error('Request failed');
+        };
+
+        xhr.send(formData);
+        });
+      });
+      </script>
+      <script src="style.js"></script>
+      <script src="condition.js"></script>
+      <script src="overlay-modal.js"></script>
+  </body>
+</html>
